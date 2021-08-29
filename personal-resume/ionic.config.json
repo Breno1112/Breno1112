@@ -1,0 +1,7 @@
+{
+  "name": "personal-resume",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
