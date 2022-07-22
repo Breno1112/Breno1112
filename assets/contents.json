@@ -14,6 +14,10 @@
         {
             "name": "Project management",
             "value": 0.5
+        },
+        {
+            "name": "Leadership",
+            "value": 0.8
         }
     ]
 }

@@ -137,12 +137,8 @@ class ResumeState extends State<Resume> {
       Map<String, dynamic> m = Map<String, dynamic>.from(element);
       skills.add(m);
     }
-    // e.forEach((element) {
-    //   Map<String, dynamic> m = element as Map<String, dynamic>;
-    //   skills.add(m);
-    // });
     List<Widget> result = [];
-    for (var element in skills) {
+    for (int idx = 0; idx < skills.length; idx++) {
       result.add(Row(
         children: [
           Expanded(
@@ -152,7 +148,7 @@ class ResumeState extends State<Resume> {
                 alignment: Alignment.centerLeft,
                 fit: BoxFit.scaleDown,
                 child: Text(
-                  element["name"],
+                  skills[idx]["name"],
                   textAlign: TextAlign.start,
                   style: const TextStyle(color: Colors.white, fontSize: 20),
                 ),
@@ -164,7 +160,7 @@ class ResumeState extends State<Resume> {
               borderRadius: const BorderRadius.horizontal(
                   left: Radius.circular(20), right: Radius.circular(20)),
               child: LinearProgressIndicator(
-                value: element["value"],
+                value: skills[idx]["value"],
                 color: Colors.white,
                 backgroundColor:
                     ColorHelper.skillProgressIndicatorBackgroundColor,
@@ -174,10 +170,12 @@ class ResumeState extends State<Resume> {
           )
         ],
       ));
-      result.add(SizedBox(
-        height: query.size.width * 0.1,
-        width: query.size.width,
-      ));
+      if (idx < skills.length - 1) {
+        result.add(SizedBox(
+          height: query.size.width * 0.1,
+          width: query.size.width,
+        ));
+      }
     }
     return result;
   }
@@ -352,10 +350,41 @@ class ResumeState extends State<Resume> {
         width: query.size.width,
       ),
     ];
-    var skilWidgetList = buildWidgetSkills(query, data?["skills"]);
-    for (var element in skilWidgetList) {
+    var skillWidgetList = buildWidgetSkills(query, data?["skills"]);
+    for (var element in skillWidgetList) {
       result.add(element);
     }
+    // var languageArea = buildLanguageWidgets(query);
+    // for (var element in languageArea) {
+    //   result.add(element);
+    // }
     return result;
   }
+
+  // List<Widget> buildLanguageWidgets(MediaQueryData query) {
+  //   List<Widget> result = [];
+  //   result.add(SizedBox(
+  //     height: query.size.width * 0.2,
+  //     width: query.size.width,
+  //   ));
+  //   result.add(Padding(
+  //     padding: EdgeInsets.symmetric(horizontal: query.size.width * 0.32),
+  //     child: const FittedBox(
+  //       fit: BoxFit.cover,
+  //       child: Text(
+  //         "Languages",
+  //         style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+  //       ),
+  //     ),
+  //   ));
+  //   result.add(Row(
+  //     children: [
+  //       CircularProgressIndicator(
+  //         valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
+  //         value: 0.5,
+  //       )
+  //     ],
+  //   ));
+  //   return result;
+  // }
 }
