@@ -1,8 +1,10 @@
 import 'dart:convert';
 
 import 'package:breno_cv/helpers/colorHelper.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class Resume extends StatefulWidget {
   const Resume({Key? key}) : super(key: key);
@@ -126,27 +128,114 @@ class ResumeState extends State<Resume> {
             height: query.size.width * 0.1,
             width: query.size.width,
           ),
-          Row(
-            children: [
-              const Expanded(
-                flex: 1,
-                child: Icon(
-                  Icons.email_outlined,
-                  color: Colors.white,
+          GestureDetector(
+            onTap: () => sendMail(data?["email"]),
+            child: Row(
+              children: [
+                const Expanded(
+                  flex: 1,
+                  child: Icon(
+                    Icons.email_outlined,
+                    color: Colors.white,
+                  ),
                 ),
-              ),
-              Expanded(
-                flex: 7,
-                child: FittedBox(
-                  fit: BoxFit.contain,
+                Expanded(
+                  flex: 7,
+                  child: FittedBox(
+                    fit: BoxFit.fitWidth,
+                    child: Text(
+                      data?["email"],
+                      style: const TextStyle(color: Colors.white),
+                      textAlign: TextAlign.start,
+                    ),
+                  ),
+                )
+              ],
+            ),
+          ),
+          SizedBox(
+            height: query.size.width * 0.1,
+            width: query.size.width,
+          ),
+          GestureDetector(
+            onTap: () => callMe(data?["phone"]),
+            child: Row(
+              children: [
+                const Expanded(
+                  flex: 1,
+                  child: Icon(
+                    Icons.phone_outlined,
+                    color: Colors.white,
+                  ),
+                ),
+                Expanded(
+                  flex: 7,
                   child: Text(
-                    data?["email"],
-                    style: TextStyle(color: Colors.white),
+                    data?["phone"],
+                    style: const TextStyle(color: Colors.white, fontSize: 20),
                     textAlign: TextAlign.start,
                   ),
                 ),
-              )
-            ],
+              ],
+            ),
+          ),
+          SizedBox(
+            height: query.size.width * 0.1,
+            width: query.size.width,
+          ),
+          GestureDetector(
+            onTap: () => navigateToMe(data?["maps_location"]),
+            child: Row(
+              children: [
+                const Expanded(
+                  flex: 1,
+                  child: Icon(
+                    Icons.location_on_outlined,
+                    color: Colors.white,
+                  ),
+                ),
+                Expanded(
+                  flex: 7,
+                  child: Text(
+                    data?["location"],
+                    style: const TextStyle(color: Colors.white, fontSize: 20),
+                    textAlign: TextAlign.start,
+                  ),
+                )
+              ],
+            ),
+          ),
+          SizedBox(
+            height: query.size.width * 0.1,
+            width: query.size.width,
+          ),
+          GestureDetector(
+            onDoubleTap: () => openWebsite(data?["website"]),
+            child: Row(
+              children: [
+                const Expanded(
+                  flex: 1,
+                  child: Icon(
+                    IconData(0xf68d,
+                        fontFamily: CupertinoIcons.iconFont,
+                        fontPackage:
+                            CupertinoIcons.iconFontPackage), //globe icon
+                    color: Colors.white,
+                  ),
+                ),
+                Expanded(
+                  flex: 7,
+                  child: FittedBox(
+                    fit: BoxFit.contain,
+                    child: Text(
+                      data?["website"],
+                      style: const TextStyle(color: Colors.white),
+                      textAlign: TextAlign.start,
+                    ),
+                  ),
+                )
+              ],
+            ),
           )
         ],
       ),
@@ -204,5 +293,21 @@ class ResumeState extends State<Resume> {
         ),
       ],
     );
+  }
+
+  sendMail(String email) async {
+    await launchUrl(Uri.parse("mailto:$email"));
+  }
+
+  callMe(String phone) async {
+    await launchUrl(Uri.parse("tel:$phone"));
+  }
+
+  navigateToMe(String mapsLocation) async {
+    await launchUrl(Uri.parse(mapsLocation));
+  }
+
+  openWebsite(String website) async {
+    await launchUrl(Uri.parse(website));
   }
 }
