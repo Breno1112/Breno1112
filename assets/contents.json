@@ -1,5 +1,7 @@
 {
-    "profile_image": "breno3x4.jpg",
+    "profile_image": "breno3x4.png",
     "name": "Breno Rodrigo Fachini",
-    "profession_shortname": "Software Engineer"
+    "profession_shortname": "Software Engineer",
+    "short_description": "Building robust and test-oriented solutions to make the world a better place",
+    "email": "contato.brenofachini@hotmail.com"
 }

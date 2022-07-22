@@ -56,51 +56,99 @@ class ResumeState extends State<Resume> {
     var query = MediaQuery.of(context);
     return Container(
       color: ColorHelper.blueResumeColor,
-      child: Padding(
+      child: ListView(
         padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 40),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            SizedBox(
-              width: query.size.width * 0.4,
-              height: query.size.height * 0.4,
-              child: CircleAvatar(
-                radius: 100,
-                backgroundImage: AssetImage(data?["profile_image"]),
+        children: [
+          SizedBox(
+            width: query.size.width * 0.4,
+            height: query.size.height * 0.4,
+            child: CircleAvatar(
+              radius: 1,
+              backgroundImage: AssetImage(data?["profile_image"]),
+            ),
+          ),
+          SizedBox(
+            height: query.size.width * 0.1,
+            width: query.size.width,
+          ),
+          FittedBox(
+            fit: BoxFit.cover,
+            child: Text(
+              data?["name"],
+              style: const TextStyle(
+                  color: Colors.white, fontWeight: FontWeight.bold),
+            ),
+          ),
+          SizedBox(
+            height: query.size.width * 0.1,
+            width: query.size.width,
+          ),
+          Padding(
+            padding: EdgeInsets.symmetric(horizontal: query.size.width * 0.1),
+            child: SizedBox(
+              height: query.size.height * 0.05,
+              width: query.size.width,
+              child: FittedBox(
+                fit: BoxFit.contain,
+                child: Text(
+                  data?["profession_shortname"],
+                  style: const TextStyle(color: Colors.white),
+                ),
               ),
             ),
-            SizedBox(
-              height: query.size.width * 0.1,
-              width: query.size.width,
-            ),
-            FittedBox(
+          ),
+          SizedBox(
+            height: query.size.width * 0.1,
+            width: query.size.width,
+          ),
+          RichText(
+            textAlign: TextAlign.center,
+            text: TextSpan(
+                text: data?["short_description"],
+                style: const TextStyle(color: Colors.white, fontSize: 20)),
+          ),
+          SizedBox(
+            height: query.size.width * 0.2,
+            width: query.size.width,
+          ),
+          Padding(
+            padding: EdgeInsets.symmetric(horizontal: query.size.width * 0.2),
+            child: const FittedBox(
               fit: BoxFit.cover,
               child: Text(
-                data?["name"],
-                style: const TextStyle(
-                    color: Colors.white, fontWeight: FontWeight.bold),
+                "Contact me",
+                style:
+                    TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
               ),
             ),
-            SizedBox(
-              height: query.size.width * 0.1,
-              width: query.size.width,
-            ),
-            Padding(
-              padding: EdgeInsets.symmetric(horizontal: query.size.width * 0.1),
-              child: SizedBox(
-                height: query.size.height * 0.05,
-                width: query.size.width,
+          ),
+          SizedBox(
+            height: query.size.width * 0.1,
+            width: query.size.width,
+          ),
+          Row(
+            children: [
+              const Expanded(
+                flex: 1,
+                child: Icon(
+                  Icons.email_outlined,
+                  color: Colors.white,
+                ),
+              ),
+              Expanded(
+                flex: 7,
                 child: FittedBox(
                   fit: BoxFit.contain,
                   child: Text(
-                    data?["profession_shortname"],
-                    style: const TextStyle(color: Colors.white),
+                    data?["email"],
+                    style: TextStyle(color: Colors.white),
+                    textAlign: TextAlign.start,
                   ),
                 ),
-              ),
-            )
-          ],
-        ),
+              )
+            ],
+          )
+        ],
       ),
     );
   }
@@ -127,9 +175,6 @@ class ResumeState extends State<Resume> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
-                  CircleAvatar(
-                      radius: 150,
-                      backgroundImage: AssetImage(data?["profile_image"])),
                   Padding(
                     padding: const EdgeInsets.symmetric(
                       vertical: 20,
