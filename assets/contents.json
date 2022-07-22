@@ -5,7 +5,15 @@
     "short_description": "Building robust and test-oriented solutions to make the world a better place",
     "email": "contato.brenofachini@hotmail.com",
     "phone": "+55 (11) 95719-8000",
-    "location": "208 Ires Leonor St. AP 62",
-    "maps_location": "https://www.google.com/maps?daddr=ires+leonor+208",
-    "website": "https://brenofachini.webnode.pt"
+    "website": "https://brenofachini.webnode.pt",
+    "skills": [
+        {
+            "name": "Java",
+            "value": 0.5
+        },
+        {
+            "name": "Project management",
+            "value": 0.5
+        }
+    ]
 }
