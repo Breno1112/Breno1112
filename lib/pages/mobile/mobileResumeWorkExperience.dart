@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'package:intl/intl.dart';
 import '../../helpers/colorHelper.dart';
 
 class MobileResumeContents extends StatefulWidget {
@@ -164,6 +164,8 @@ class MobileResumeContentsState extends State<MobileResumeContents> {
   }
 
   String buildPeriodString(String start_date, String end_date) {
-    return "2021 - present";
+    var start = DateTime.parse(start_date);
+    var end = DateTime.parse(end_date);
+    return "${DateFormat("yyyy/MM").format(start)} - ${DateFormat("yyyy/MM").format(end)}";
   }
 }
