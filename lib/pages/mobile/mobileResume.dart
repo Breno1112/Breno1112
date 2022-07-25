@@ -210,13 +210,13 @@ class MobileResumeState extends State<MobileResume> {
           style: ElevatedButton.styleFrom(
             primary: Colors.white,
           ),
-          onPressed: () => showWorkExperience(),
+          onPressed: () => showContents(),
           child: const Hero(
-              tag: "work-experience",
+              tag: "mobile-resume-contents",
               child: FittedBox(
                 fit: BoxFit.cover,
                 child: Text(
-                  "View work Experience",
+                  "View education",
                   style: TextStyle(color: ColorHelper.blueResumeColor),
                 ),
               ))),
@@ -286,7 +286,7 @@ class MobileResumeState extends State<MobileResume> {
     return result;
   }
 
-  showWorkExperience() {
+  showContents() {
     Route route = PageRouteBuilder(
         pageBuilder: ((context, animation, secondaryAnimation) =>
             const MobileResumeWorkExperience()),
