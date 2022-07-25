@@ -159,49 +159,10 @@ class MobileResumeContentsState extends State<MobileResumeContents> {
       for (var element in workExperience) {
         result.addAll(buildSingleWorkExperience(query, element));
       }
-      result.addAll([
-        SizedBox(
-          width: query.size.width,
-          height: query.size.height * 0.05,
-        ),
-        SizedBox(
-          width: query.size.width,
-          child: const Divider(
-            color: ColorHelper.blueResumeColor,
-            thickness: 2,
-          ),
-        ),
-        SizedBox(
-          width: query.size.width,
-          height: query.size.height * 0.05,
-        ),
-        Row(
-          children: const [
-            Expanded(
-              flex: 1,
-              child: FittedBox(
-                fit: BoxFit.cover,
-                child: Text(
-                  "Education",
-                  style: TextStyle(
-                      color: ColorHelper.blueResumeColor,
-                      fontWeight: FontWeight.bold),
-                ),
-              ),
-            ),
-            Expanded(
-              flex: 1,
-              child: SizedBox(),
-            )
-          ],
-        ),
-        SizedBox(
-          width: query.size.width,
-          height: query.size.height * 0.1,
-        )
-      ]);
+      result.addAll(buildSection(query, "Education"));
       widget.data?["education"].forEach((element) =>
           {result.addAll(buildSingleEducationSection(query, element))});
+      result.addAll(buildSection(query, "Languages"));
       return result;
     });
   }
@@ -248,6 +209,50 @@ class MobileResumeContentsState extends State<MobileResumeContents> {
               const TextStyle(color: ColorHelper.blueResumeColor, fontSize: 15),
         ),
       ),
+    ];
+  }
+
+  List<Widget> buildSection(MediaQueryData query, String name) {
+    return [
+      SizedBox(
+        width: query.size.width,
+        height: query.size.height * 0.05,
+      ),
+      SizedBox(
+        width: query.size.width,
+        child: const Divider(
+          color: ColorHelper.blueResumeColor,
+          thickness: 2,
+        ),
+      ),
+      SizedBox(
+        width: query.size.width,
+        height: query.size.height * 0.05,
+      ),
+      Row(
+        children: [
+          Expanded(
+            flex: 1,
+            child: FittedBox(
+              fit: BoxFit.cover,
+              child: Text(
+                name,
+                style: const TextStyle(
+                    color: ColorHelper.blueResumeColor,
+                    fontWeight: FontWeight.bold),
+              ),
+            ),
+          ),
+          const Expanded(
+            flex: 1,
+            child: SizedBox(),
+          )
+        ],
+      ),
+      SizedBox(
+        width: query.size.width,
+        height: query.size.height * 0.1,
+      )
     ];
   }
 }
