@@ -7,12 +7,13 @@ class MobileResumeWorkExperience extends StatelessWidget {
 
   Widget bullet() {
     return Container(
-        height: 10.0,
-        width: 10.0,
-        decoration: const BoxDecoration(
-          color: ColorHelper.blueResumeColor,
-          shape: BoxShape.circle,
-        ));
+      height: 5.0,
+      width: 5.0,
+      decoration: const BoxDecoration(
+        color: ColorHelper.blueResumeColor,
+        shape: BoxShape.circle,
+      ),
+    );
   }
 
   @override
@@ -31,60 +32,84 @@ class MobileResumeWorkExperience extends StatelessWidget {
           children: [
             Hero(
                 tag: "mobile-resume-contents",
-                child: Padding(
-                  padding: const EdgeInsets.fromLTRB(20, 0, 0, 0),
-                  child: Row(
-                    children: const [
-                      Expanded(
-                        flex: 1,
-                        child: FittedBox(
-                          fit: BoxFit.cover,
-                          child: Text(
-                            "Education",
-                            style: TextStyle(
-                                color: ColorHelper.blueResumeColor,
-                                fontWeight: FontWeight.bold),
-                          ),
+                child: Row(
+                  children: const [
+                    Expanded(
+                      flex: 1,
+                      child: FittedBox(
+                        fit: BoxFit.cover,
+                        child: Text(
+                          "Work experience",
+                          style: TextStyle(
+                              color: ColorHelper.blueResumeColor,
+                              fontWeight: FontWeight.bold),
                         ),
                       ),
-                      Expanded(
-                        flex: 1,
-                        child: SizedBox(),
-                      )
-                    ],
-                  ),
+                    ),
+                    Expanded(
+                      flex: 1,
+                      child: SizedBox(),
+                    )
+                  ],
                 )),
             SizedBox(
               width: query.size.width,
               height: query.size.height * 0.1,
             ),
-            Row(
-              children: [
-                Padding(
-                  padding: EdgeInsets.fromLTRB(2.5, 0, 0, 0),
-                  child: bullet(),
-                )
-              ],
+            const FittedBox(
+              fit: BoxFit.scaleDown,
+              alignment: Alignment.centerLeft,
+              child: Text(
+                "Software Engineer",
+                style:
+                    TextStyle(color: ColorHelper.blueResumeColor, fontSize: 20),
+              ),
+            ),
+            SizedBox(
+              height: query.size.height * 0.02,
+            ),
+            const FittedBox(
+              fit: BoxFit.scaleDown,
+              alignment: Alignment.centerLeft,
+              child: Text(
+                "Itaú Unibanco",
+                style:
+                    TextStyle(color: ColorHelper.blueResumeColor, fontSize: 15),
+              ),
+            ),
+            SizedBox(
+              height: query.size.height * 0.01,
+            ),
+            const FittedBox(
+              fit: BoxFit.scaleDown,
+              alignment: Alignment.centerLeft,
+              child: Text(
+                "2021 - Present",
+                style:
+                    TextStyle(color: ColorHelper.blueResumeColor, fontSize: 15),
+              ),
+            ),
+            SizedBox(
+              height: query.size.height * 0.02,
             ),
             Row(
+              // crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-                SizedBox(
-                  height: query.size.height * 0.1,
-                  child: VerticalDivider(
-                    thickness: 2,
-                    color: ColorHelper.blueResumeColor,
+                bullet(),
+                const SizedBox(
+                  width: 10,
+                ),
+                const Expanded(
+                  child: Text(
+                    "Develop web applications with Angular framework",
+                    textAlign: TextAlign.justify,
+                    maxLines: 3,
+                    style: TextStyle(
+                        color: ColorHelper.blueResumeColor, fontSize: 15),
                   ),
                 )
               ],
-            ),
-            Row(
-              children: [
-                Padding(
-                  padding: EdgeInsets.fromLTRB(2.5, 0, 0, 0),
-                  child: bullet(),
-                )
-              ],
-            ),
+            )
           ],
         ),
       ),

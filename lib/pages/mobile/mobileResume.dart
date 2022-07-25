@@ -216,7 +216,7 @@ class MobileResumeState extends State<MobileResume> {
               child: FittedBox(
                 fit: BoxFit.cover,
                 child: Text(
-                  "View education",
+                  "View work experience",
                   style: TextStyle(color: ColorHelper.blueResumeColor),
                 ),
               ))),
