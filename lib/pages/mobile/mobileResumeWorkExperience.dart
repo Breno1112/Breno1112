@@ -166,6 +166,7 @@ class MobileResumeContentsState extends State<MobileResumeContents> {
       widget.data?["education"].forEach((element) =>
           {result.addAll(buildSingleEducationSection(query, element))});
       result.addAll(buildSection(query, "Languages"));
+      result.addAll(buildLanguages(query, widget.data?["languages"]));
       return result;
     });
   }
@@ -258,6 +259,74 @@ class MobileResumeContentsState extends State<MobileResumeContents> {
       SizedBox(
         width: query.size.width,
         height: query.size.height * 0.1,
+      )
+    ];
+  }
+
+  List<Widget> buildLanguages(MediaQueryData query, List<dynamic>? data) {
+    return [
+      Row(
+        children: [
+          Expanded(
+            flex: 1,
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 10),
+              child: SizedBox(
+                width: query.size.width,
+                height: query.size.height * 0.2,
+                child: const RotatedBox(
+                  quarterTurns: -1,
+                  child: CircularProgressIndicator(
+                    value: 0.5,
+                    valueColor: AlwaysStoppedAnimation<Color>(
+                        ColorHelper.blueResumeColor),
+                    backgroundColor: Colors.white,
+                  ),
+                ),
+              ),
+            ),
+          ),
+          Expanded(
+            flex: 1,
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 10),
+              child: SizedBox(
+                width: query.size.width,
+                height: query.size.height * 0.2,
+                child: const RotatedBox(
+                  quarterTurns: -1,
+                  child: CircularProgressIndicator(
+                    value: 0.5,
+                    valueColor: AlwaysStoppedAnimation<Color>(
+                        ColorHelper.blueResumeColor),
+                    backgroundColor: Colors.white,
+                  ),
+                ),
+              ),
+            ),
+          ),
+          Expanded(
+            flex: 1,
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 10),
+              child: SizedBox(
+                width: query.size.width,
+                height: query.size.height * 0.2,
+                child: const RotatedBox(
+                  quarterTurns: -1,
+                  child: CircularProgressIndicator(
+                    semanticsLabel: "label test",
+                    semanticsValue: "value label test",
+                    value: 0.5,
+                    valueColor: AlwaysStoppedAnimation<Color>(
+                        ColorHelper.blueResumeColor),
+                    backgroundColor: Colors.white,
+                  ),
+                ),
+              ),
+            ),
+          )
+        ],
       )
     ];
   }

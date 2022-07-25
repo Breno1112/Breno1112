@@ -53,5 +53,15 @@
             "start_date": "20070101",
             "end_date": "20181231"
         }
+    ],
+    "languages": [
+        {
+            "name": "Portuguese",
+            "level": 1
+        },
+        {
+            "name": "English",
+            "level": 0.5
+        }
     ]
 }
