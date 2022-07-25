@@ -56,11 +56,19 @@
     ],
     "languages": [
         {
-            "name": "Portuguese",
+            "name": "Japanese",
             "level": 1
         },
         {
+            "name": "Spanish",
+            "level": 0.5
+        },
+        {
             "name": "English",
+            "level": 1
+        },
+        {
+            "name": "Portuguese",
             "level": 0.5
         }
     ]

@@ -264,70 +264,86 @@ class MobileResumeContentsState extends State<MobileResumeContents> {
   }
 
   List<Widget> buildLanguages(MediaQueryData query, List<dynamic>? data) {
-    return [
-      Row(
-        children: [
-          Expanded(
-            flex: 1,
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 10),
-              child: SizedBox(
-                width: query.size.width,
-                height: query.size.height * 0.2,
-                child: const RotatedBox(
-                  quarterTurns: -1,
-                  child: CircularProgressIndicator(
-                    value: 0.5,
-                    valueColor: AlwaysStoppedAnimation<Color>(
-                        ColorHelper.blueResumeColor),
-                    backgroundColor: Colors.white,
-                  ),
-                ),
-              ),
+    List<Widget> result = [];
+    if (data == null) {
+      return [];
+    }
+    int numOfRows = (data.length / 3).floor();
+    if (data.length % 3 > 0) {
+      numOfRows++;
+    }
+
+    for (var x = 0; x < numOfRows; x++) {
+      print("Row $x");
+      List<Widget> rowWidget = [];
+      Row r = Row(
+        children: rowWidget,
+      );
+      if (x * 3 < data.length) {
+        rowWidget.add(buildSingleLanguageTermometerItem(query, data[x * 3]));
+      }
+      if (x * 3 + 1 < data.length) {
+        rowWidget
+            .add(buildSingleLanguageTermometerItem(query, data[x * 3 + 1]));
+      }
+      if (x * 3 + 2 < data.length) {
+        rowWidget
+            .add(buildSingleLanguageTermometerItem(query, data[x * 3 + 2]));
+      }
+      result.add(r);
+      result.add(SizedBox(
+        width: query.size.width,
+        height: query.size.height * 0.05,
+      ));
+    }
+    return result;
+  }
+
+  Widget buildSingleLanguageTermometer(
+      MediaQueryData query, String languageName, double value) {
+    return Stack(
+      children: [
+        RotatedBox(
+          quarterTurns: -1,
+          child: CircularProgressIndicator(
+            value: value / 2,
+            valueColor: const AlwaysStoppedAnimation<Color>(
+                ColorHelper.blueResumeColor),
+            backgroundColor: Colors.white,
+          ),
+        ),
+        Positioned(
+          bottom: 0,
+          left: 0,
+          right: 0,
+          child: SizedBox(
+            width: query.size.width * 0.01,
+            child: FittedBox(
+              fit: BoxFit.scaleDown,
+              child: Text(languageName),
             ),
           ),
-          Expanded(
-            flex: 1,
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 10),
-              child: SizedBox(
-                width: query.size.width,
-                height: query.size.height * 0.2,
-                child: const RotatedBox(
-                  quarterTurns: -1,
-                  child: CircularProgressIndicator(
-                    value: 0.5,
-                    valueColor: AlwaysStoppedAnimation<Color>(
-                        ColorHelper.blueResumeColor),
-                    backgroundColor: Colors.white,
-                  ),
-                ),
-              ),
-            ),
+        )
+      ],
+    );
+  }
+
+  Widget buildSingleLanguageTermometerItem(
+      MediaQueryData query, Map<String, dynamic> data) {
+    return Expanded(
+      flex: 1,
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 10),
+        child: SizedBox(
+          width: query.size.width,
+          height: query.size.height * 0.2,
+          child: FittedBox(
+            fit: BoxFit.contain,
+            child: buildSingleLanguageTermometer(
+                query, data["name"], data["level"]),
           ),
-          Expanded(
-            flex: 1,
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 10),
-              child: SizedBox(
-                width: query.size.width,
-                height: query.size.height * 0.2,
-                child: const RotatedBox(
-                  quarterTurns: -1,
-                  child: CircularProgressIndicator(
-                    semanticsLabel: "label test",
-                    semanticsValue: "value label test",
-                    value: 0.5,
-                    valueColor: AlwaysStoppedAnimation<Color>(
-                        ColorHelper.blueResumeColor),
-                    backgroundColor: Colors.white,
-                  ),
-                ),
-              ),
-            ),
-          )
-        ],
-      )
-    ];
+        ),
+      ),
+    );
   }
 }
