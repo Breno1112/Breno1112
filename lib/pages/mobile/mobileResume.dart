@@ -1,3 +1,4 @@
+import 'package:breno_cv/pages/mobile/mobileResumeWorkExperience.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -198,10 +199,28 @@ class MobileResumeState extends State<MobileResume> {
     for (var element in skillWidgetList) {
       result.add(element);
     }
-    // var languageArea = buildLanguageWidgets(query);
-    // for (var element in languageArea) {
-    //   result.add(element);
-    // }
+    result.add(SizedBox(
+      height: query.size.width * 0.2,
+      width: query.size.width,
+    ));
+    result.add(SizedBox(
+      width: query.size.width,
+      height: query.size.height * 0.07,
+      child: ElevatedButton(
+          style: ElevatedButton.styleFrom(
+            primary: Colors.white,
+          ),
+          onPressed: () => showWorkExperience(),
+          child: const Hero(
+              tag: "work-experience",
+              child: FittedBox(
+                fit: BoxFit.cover,
+                child: Text(
+                  "View work Experience",
+                  style: TextStyle(color: ColorHelper.blueResumeColor),
+                ),
+              ))),
+    ));
     return result;
   }
 
@@ -265,5 +284,24 @@ class MobileResumeState extends State<MobileResume> {
       }
     }
     return result;
+  }
+
+  showWorkExperience() {
+    Route _route = PageRouteBuilder(
+        pageBuilder: ((context, animation, secondaryAnimation) =>
+            const MobileResumeWorkExperience()),
+        transitionsBuilder: ((context, animation, secondaryAnimation, child) {
+          const begin = Offset(0.0, 1.0);
+          const end = Offset.zero;
+          const curve = Curves.ease;
+          var tween =
+              Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
+
+          return SlideTransition(
+            position: animation.drive(tween),
+            child: child,
+          );
+        }));
+    Navigator.push(context, _route);
   }
 }
