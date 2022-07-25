@@ -2,8 +2,81 @@ import 'package:flutter/material.dart';
 
 import '../../helpers/colorHelper.dart';
 
-class MobileResumeWorkExperience extends StatelessWidget {
-  const MobileResumeWorkExperience({Key? key}) : super(key: key);
+class MobileResumeContents extends StatefulWidget {
+  final Map<String, dynamic>? data;
+  const MobileResumeContents({Key? key, required this.data}) : super(key: key);
+
+  @override
+  State<StatefulWidget> createState() => MobileResumeContentsState();
+}
+
+class MobileResumeContentsState extends State<MobileResumeContents> {
+  late MediaQueryData mainQuery;
+  List<Widget> buildSingleWorkExperience(
+      MediaQueryData query, Map<String, dynamic> data) {
+    List<Widget> result = [
+      FittedBox(
+        fit: BoxFit.scaleDown,
+        alignment: Alignment.centerLeft,
+        child: Text(
+          data["job_title"],
+          style:
+              const TextStyle(color: ColorHelper.blueResumeColor, fontSize: 20),
+        ),
+      ),
+      SizedBox(
+        height: query.size.height * 0.02,
+      ),
+      FittedBox(
+        fit: BoxFit.scaleDown,
+        alignment: Alignment.centerLeft,
+        child: Text(
+          data["company_name"],
+          style:
+              const TextStyle(color: ColorHelper.blueResumeColor, fontSize: 15),
+        ),
+      ),
+      SizedBox(
+        height: query.size.height * 0.01,
+      ),
+      FittedBox(
+        fit: BoxFit.scaleDown,
+        alignment: Alignment.centerLeft,
+        child: Text(
+          buildPeriodString(data["start_date"], data["end_date"]),
+          style:
+              const TextStyle(color: ColorHelper.blueResumeColor, fontSize: 15),
+        ),
+      ),
+      SizedBox(
+        height: query.size.height * 0.02,
+      ),
+    ];
+    data["tasks"].forEach(
+        (element) => {result.add(buildSingleDescription(true, element))});
+    return result;
+  }
+
+  Widget buildSingleDescription(bool use_bullet, String description) {
+    return Row(
+      // crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: [
+        bullet(),
+        const SizedBox(
+          width: 10,
+        ),
+        Expanded(
+          child: Text(
+            description,
+            textAlign: TextAlign.justify,
+            maxLines: 3,
+            style: const TextStyle(
+                color: ColorHelper.blueResumeColor, fontSize: 15),
+          ),
+        )
+      ],
+    );
+  }
 
   Widget bullet() {
     return Container(
@@ -18,7 +91,7 @@ class MobileResumeWorkExperience extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var query = MediaQuery.of(context);
+    mainQuery = MediaQuery.of(context);
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.white,
@@ -27,92 +100,70 @@ class MobileResumeWorkExperience extends StatelessWidget {
       ),
       body: Container(
         color: Colors.white,
-        child: ListView(
-          padding: const EdgeInsets.symmetric(horizontal: 20),
-          children: [
-            Hero(
-                tag: "mobile-resume-contents",
-                child: Row(
-                  children: const [
-                    Expanded(
-                      flex: 1,
-                      child: FittedBox(
-                        fit: BoxFit.cover,
-                        child: Text(
-                          "Work experience",
-                          style: TextStyle(
-                              color: ColorHelper.blueResumeColor,
-                              fontWeight: FontWeight.bold),
-                        ),
-                      ),
-                    ),
-                    Expanded(
-                      flex: 1,
-                      child: SizedBox(),
-                    )
-                  ],
-                )),
-            SizedBox(
-              width: query.size.width,
-              height: query.size.height * 0.1,
-            ),
-            const FittedBox(
-              fit: BoxFit.scaleDown,
-              alignment: Alignment.centerLeft,
-              child: Text(
-                "Software Engineer",
-                style:
-                    TextStyle(color: ColorHelper.blueResumeColor, fontSize: 20),
-              ),
-            ),
-            SizedBox(
-              height: query.size.height * 0.02,
-            ),
-            const FittedBox(
-              fit: BoxFit.scaleDown,
-              alignment: Alignment.centerLeft,
-              child: Text(
-                "Itaú Unibanco",
-                style:
-                    TextStyle(color: ColorHelper.blueResumeColor, fontSize: 15),
-              ),
-            ),
-            SizedBox(
-              height: query.size.height * 0.01,
-            ),
-            const FittedBox(
-              fit: BoxFit.scaleDown,
-              alignment: Alignment.centerLeft,
-              child: Text(
-                "2021 - Present",
-                style:
-                    TextStyle(color: ColorHelper.blueResumeColor, fontSize: 15),
-              ),
-            ),
-            SizedBox(
-              height: query.size.height * 0.02,
-            ),
-            Row(
-              // crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: [
-                bullet(),
-                const SizedBox(
-                  width: 10,
-                ),
-                const Expanded(
-                  child: Text(
-                    "Develop web applications with Angular framework",
-                    textAlign: TextAlign.justify,
-                    maxLines: 3,
-                    style: TextStyle(
-                        color: ColorHelper.blueResumeColor, fontSize: 15),
-                  ),
-                )
-              ],
-            )
-          ],
+        child: FutureBuilder(
+          future: buildScreen(mainQuery),
+          builder:
+              ((BuildContext context, AsyncSnapshot<List<Widget>> snapshot) {
+            if (snapshot.connectionState != ConnectionState.done) {
+              return const CircularProgressIndicator(
+                color: ColorHelper.blueResumeColor,
+              );
+            } else {
+              return ListView(
+                padding: const EdgeInsets.symmetric(horizontal: 20),
+                children: snapshot.data!,
+              );
+            }
+          }),
         ),
       ),
     );
+  }
+
+  Future<List<Widget>> buildScreen(query) {
+    return Future(() {
+      List<Widget> result = [
+        Hero(
+            tag: "mobile-resume-contents",
+            child: Row(
+              children: const [
+                Expanded(
+                  flex: 1,
+                  child: FittedBox(
+                    fit: BoxFit.cover,
+                    child: Text(
+                      "Work experience",
+                      style: TextStyle(
+                          color: ColorHelper.blueResumeColor,
+                          fontWeight: FontWeight.bold),
+                    ),
+                  ),
+                ),
+                Expanded(
+                  flex: 1,
+                  child: SizedBox(),
+                )
+              ],
+            )),
+        SizedBox(
+          width: query.size.width,
+          height: query.size.height * 0.1,
+        ),
+      ];
+      List<dynamic> l = widget.data?["work_experience"];
+      List<Map<String, dynamic>> workExperience = [];
+      for (var element in l) {
+        Map<String, dynamic> toInsert = Map<String, dynamic>.from(element);
+        workExperience.add(toInsert);
+      }
+      for (var element in workExperience) {
+        result.addAll(buildSingleWorkExperience(query, element));
+      }
+      return result;
+    });
+  }
+
+  String buildPeriodString(String start_date, String end_date) {
+    return "2021 - present";
   }
 }

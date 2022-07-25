@@ -210,7 +210,7 @@ class MobileResumeState extends State<MobileResume> {
           style: ElevatedButton.styleFrom(
             primary: Colors.white,
           ),
-          onPressed: () => showContents(),
+          onPressed: () => showContents(data),
           child: const Hero(
               tag: "mobile-resume-contents",
               child: FittedBox(
@@ -286,10 +286,12 @@ class MobileResumeState extends State<MobileResume> {
     return result;
   }
 
-  showContents() {
+  showContents(Map<String, dynamic>? data) {
     Route route = PageRouteBuilder(
         pageBuilder: ((context, animation, secondaryAnimation) =>
-            const MobileResumeWorkExperience()),
+            MobileResumeContents(
+              data: data,
+            )),
         transitionsBuilder: ((context, animation, secondaryAnimation, child) {
           const begin = Offset(0.0, 1.0);
           const end = Offset.zero;
