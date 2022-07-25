@@ -159,6 +159,49 @@ class MobileResumeContentsState extends State<MobileResumeContents> {
       for (var element in workExperience) {
         result.addAll(buildSingleWorkExperience(query, element));
       }
+      result.addAll([
+        SizedBox(
+          width: query.size.width,
+          height: query.size.height * 0.05,
+        ),
+        SizedBox(
+          width: query.size.width,
+          child: const Divider(
+            color: ColorHelper.blueResumeColor,
+            thickness: 2,
+          ),
+        ),
+        SizedBox(
+          width: query.size.width,
+          height: query.size.height * 0.05,
+        ),
+        Row(
+          children: const [
+            Expanded(
+              flex: 1,
+              child: FittedBox(
+                fit: BoxFit.cover,
+                child: Text(
+                  "Education",
+                  style: TextStyle(
+                      color: ColorHelper.blueResumeColor,
+                      fontWeight: FontWeight.bold),
+                ),
+              ),
+            ),
+            Expanded(
+              flex: 1,
+              child: SizedBox(),
+            )
+          ],
+        ),
+        SizedBox(
+          width: query.size.width,
+          height: query.size.height * 0.1,
+        )
+      ]);
+      widget.data?["education"].forEach((element) =>
+          {result.addAll(buildSingleEducationSection(query, element))});
       return result;
     });
   }
@@ -167,5 +210,44 @@ class MobileResumeContentsState extends State<MobileResumeContents> {
     var start = DateTime.parse(start_date);
     var end = DateTime.parse(end_date);
     return "${DateFormat("yyyy/MM").format(start)} - ${DateFormat("yyyy/MM").format(end)}";
+  }
+
+  List<Widget> buildSingleEducationSection(
+      MediaQueryData query, Map<String, dynamic> data) {
+    return [
+      FittedBox(
+        fit: BoxFit.scaleDown,
+        alignment: Alignment.centerLeft,
+        child: Text(
+          data["type"],
+          style:
+              const TextStyle(color: ColorHelper.blueResumeColor, fontSize: 20),
+        ),
+      ),
+      SizedBox(
+        height: query.size.height * 0.02,
+      ),
+      FittedBox(
+        fit: BoxFit.scaleDown,
+        alignment: Alignment.centerLeft,
+        child: Text(
+          data["school_name"],
+          style:
+              const TextStyle(color: ColorHelper.blueResumeColor, fontSize: 15),
+        ),
+      ),
+      SizedBox(
+        height: query.size.height * 0.01,
+      ),
+      FittedBox(
+        fit: BoxFit.scaleDown,
+        alignment: Alignment.centerLeft,
+        child: Text(
+          buildPeriodString(data["start_date"], data["end_date"]),
+          style:
+              const TextStyle(color: ColorHelper.blueResumeColor, fontSize: 15),
+        ),
+      ),
+    ];
   }
 }
