@@ -29,9 +29,24 @@
             "tasks": [
                 "Develop web applications with Angular framework"
             ]
+        },
+        {
+            "job_title": "Software Engineer",
+            "company_name": "Accenture",
+            "start_date": "20210405",
+            "end_date": "20210405",
+            "tasks": [
+                "Develop web applications with Angular framework"
+            ]
         }
     ],
     "education": [
+        {
+            "type": "Primary school",
+            "school_name": "Colégio Aliado - Unidade Jardim Japão",
+            "start_date": "20070101",
+            "end_date": "20181231"
+        },
         {
             "type": "Primary school",
             "school_name": "Colégio Aliado - Unidade Jardim Japão",

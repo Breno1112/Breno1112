@@ -54,6 +54,9 @@ class MobileResumeContentsState extends State<MobileResumeContents> {
     ];
     data["tasks"].forEach(
         (element) => {result.add(buildSingleDescription(true, element))});
+    result.add(SizedBox(
+      height: query.size.height * 0.1,
+    ));
     return result;
   }
 
@@ -167,9 +170,9 @@ class MobileResumeContentsState extends State<MobileResumeContents> {
     });
   }
 
-  String buildPeriodString(String start_date, String end_date) {
-    var start = DateTime.parse(start_date);
-    var end = DateTime.parse(end_date);
+  String buildPeriodString(String startDate, String endDate) {
+    var start = DateTime.parse(startDate);
+    var end = DateTime.parse(endDate);
     return "${DateFormat("yyyy/MM").format(start)} - ${DateFormat("yyyy/MM").format(end)}";
   }
 
@@ -209,6 +212,9 @@ class MobileResumeContentsState extends State<MobileResumeContents> {
               const TextStyle(color: ColorHelper.blueResumeColor, fontSize: 15),
         ),
       ),
+      SizedBox(
+        height: query.size.height * 0.1,
+      )
     ];
   }
 
