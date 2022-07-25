@@ -287,7 +287,7 @@ class MobileResumeState extends State<MobileResume> {
   }
 
   showWorkExperience() {
-    Route _route = PageRouteBuilder(
+    Route route = PageRouteBuilder(
         pageBuilder: ((context, animation, secondaryAnimation) =>
             const MobileResumeWorkExperience()),
         transitionsBuilder: ((context, animation, secondaryAnimation, child) {
@@ -302,6 +302,6 @@ class MobileResumeState extends State<MobileResume> {
             child: child,
           );
         }));
-    Navigator.push(context, _route);
+    Navigator.push(context, route);
   }
 }
