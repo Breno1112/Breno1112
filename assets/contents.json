@@ -40,6 +40,14 @@
             ]
         }
     ],
+    "awards": [
+        {
+            "name": "High performance Acchievement",
+            "description": "",
+            "company_name": "Itaú Unibanco",
+            "start_date": "20220101"
+        }
+    ],
     "education": [
         {
             "type": "Primary school",

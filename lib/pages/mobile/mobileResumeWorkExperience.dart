@@ -162,6 +162,15 @@ class MobileResumeContentsState extends State<MobileResumeContents> {
       for (var element in workExperience) {
         result.addAll(buildSingleWorkExperience(query, element));
       }
+      result.addAll(buildSection(query, "Awards"));
+      widget.data?["awards"].forEach((element) => {
+            print(element),
+            result.addAll(buildSectionData(
+                query,
+                element["name"],
+                element["company_name"],
+                buildPeriodString(element["start_date"], null)))
+          });
       result.addAll(buildSection(query, "Education"));
       widget.data?["education"].forEach((element) =>
           {result.addAll(buildSingleEducationSection(query, element))});
@@ -171,10 +180,20 @@ class MobileResumeContentsState extends State<MobileResumeContents> {
     });
   }
 
-  String buildPeriodString(String startDate, String endDate) {
-    var start = DateTime.parse(startDate);
-    var end = DateTime.parse(endDate);
-    return "${DateFormat("yyyy/MM").format(start)} - ${DateFormat("yyyy/MM").format(end)}";
+  String buildPeriodString(String? startDate, String? endDate) {
+    if (startDate == null && endDate == null) {
+      return "";
+    } else if (startDate != null && endDate == null) {
+      var start = DateTime.parse(startDate);
+      return DateFormat("yyyy/MM").format(start);
+    } else if (startDate == null && endDate != null) {
+      var end = DateTime.parse(endDate);
+      return DateFormat("yyyy/MM").format(end);
+    } else {
+      var start = DateTime.parse(startDate!);
+      var end = DateTime.parse(endDate!);
+      return "${DateFormat("yyyy/MM").format(start)} - ${DateFormat("yyyy/MM").format(end)}";
+    }
   }
 
   List<Widget> buildSingleEducationSection(
@@ -343,5 +362,47 @@ class MobileResumeContentsState extends State<MobileResumeContents> {
       flex: 1,
       child: SizedBox(),
     );
+  }
+
+  List<Widget> buildSectionData(
+      MediaQueryData query, String title, String locationName, String date) {
+    return [
+      FittedBox(
+        fit: BoxFit.scaleDown,
+        alignment: Alignment.centerLeft,
+        child: Text(
+          title,
+          style:
+              const TextStyle(color: ColorHelper.blueResumeColor, fontSize: 20),
+        ),
+      ),
+      SizedBox(
+        height: query.size.height * 0.02,
+      ),
+      FittedBox(
+        fit: BoxFit.scaleDown,
+        alignment: Alignment.centerLeft,
+        child: Text(
+          locationName,
+          style:
+              const TextStyle(color: ColorHelper.blueResumeColor, fontSize: 15),
+        ),
+      ),
+      SizedBox(
+        height: query.size.height * 0.01,
+      ),
+      FittedBox(
+        fit: BoxFit.scaleDown,
+        alignment: Alignment.centerLeft,
+        child: Text(
+          date,
+          style:
+              const TextStyle(color: ColorHelper.blueResumeColor, fontSize: 15),
+        ),
+      ),
+      SizedBox(
+        height: query.size.height * 0.1,
+      )
+    ];
   }
 }
