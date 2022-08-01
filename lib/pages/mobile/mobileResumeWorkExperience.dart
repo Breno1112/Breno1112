@@ -132,20 +132,20 @@ class MobileResumeContentsState extends State<MobileResumeContents> {
               children: const [
                 Expanded(
                   flex: 1,
-                  child: FittedBox(
-                    fit: BoxFit.cover,
-                    child: Text(
-                      "Work experience",
-                      style: TextStyle(
-                          color: ColorHelper.blueResumeColor,
-                          fontWeight: FontWeight.bold),
+                  child: Align(
+                    alignment: Alignment.centerLeft,
+                    child: FittedBox(
+                      fit: BoxFit.scaleDown,
+                      child: Text(
+                        "Work experience",
+                        style: TextStyle(
+                            fontSize: 50,
+                            color: ColorHelper.blueResumeColor,
+                            fontWeight: FontWeight.bold),
+                      ),
                     ),
                   ),
                 ),
-                Expanded(
-                  flex: 1,
-                  child: SizedBox(),
-                )
               ],
             )),
         SizedBox(
@@ -240,20 +240,20 @@ class MobileResumeContentsState extends State<MobileResumeContents> {
         children: [
           Expanded(
             flex: 1,
-            child: FittedBox(
-              fit: BoxFit.cover,
-              child: Text(
-                name,
-                style: const TextStyle(
-                    color: ColorHelper.blueResumeColor,
-                    fontWeight: FontWeight.bold),
+            child: Align(
+              alignment: Alignment.centerLeft,
+              child: FittedBox(
+                fit: BoxFit.scaleDown,
+                child: Text(
+                  name,
+                  style: const TextStyle(
+                      fontSize: 50,
+                      color: ColorHelper.blueResumeColor,
+                      fontWeight: FontWeight.bold),
+                ),
               ),
             ),
           ),
-          const Expanded(
-            flex: 1,
-            child: SizedBox(),
-          )
         ],
       ),
       SizedBox(
