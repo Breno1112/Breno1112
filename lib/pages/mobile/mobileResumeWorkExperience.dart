@@ -166,7 +166,7 @@ class MobileResumeContentsState extends State<MobileResumeContents> {
       widget.data?["education"].forEach((element) =>
           {result.addAll(buildSingleEducationSection(query, element))});
       result.addAll(buildSection(query, "Languages"));
-      result.addAll(buildLanguages(query, widget.data?["languages"]));
+      result.addAll(buildLanguages(query, widget.data?["languages"], 2));
       return result;
     });
   }
@@ -263,35 +263,28 @@ class MobileResumeContentsState extends State<MobileResumeContents> {
     ];
   }
 
-  List<Widget> buildLanguages(MediaQueryData query, List<dynamic>? data) {
+  List<Widget> buildLanguages(
+      MediaQueryData query, List<dynamic>? data, int maxItemsInRow) {
     List<Widget> result = [];
     if (data == null) {
       return [];
     }
-    int numOfRows = (data.length / 3).floor();
-    if (data.length % 3 > 0) {
+    int numOfRows = (data.length / maxItemsInRow).floor();
+    if (data.length % maxItemsInRow > 0) {
       numOfRows++;
     }
-
     for (var x = 0; x < numOfRows; x++) {
       List<Widget> rowWidget = [];
       Row r = Row(
         children: rowWidget,
       );
-      if (x * 3 < data.length) {
-        rowWidget.add(buildSingleLanguageTermometerItem(query, data[x * 3]));
-      }
-      if (x * 3 + 1 < data.length) {
-        rowWidget
-            .add(buildSingleLanguageTermometerItem(query, data[x * 3 + 1]));
-      } else {
-        rowWidget.add(rowSpacing());
-      }
-      if (x * 3 + 2 < data.length) {
-        rowWidget
-            .add(buildSingleLanguageTermometerItem(query, data[x * 3 + 2]));
-      } else {
-        rowWidget.add(rowSpacing());
+      for (var y = 0; y < maxItemsInRow; y++) {
+        if (x * maxItemsInRow + y < data.length) {
+          rowWidget.add(buildSingleLanguageTermometerItem(
+              query, data[x * maxItemsInRow + y]));
+        } else {
+          rowWidget.add(rowSpacing());
+        }
       }
       result.add(r);
       result.add(SizedBox(
