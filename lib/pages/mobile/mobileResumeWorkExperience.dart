@@ -274,7 +274,6 @@ class MobileResumeContentsState extends State<MobileResumeContents> {
     }
 
     for (var x = 0; x < numOfRows; x++) {
-      print("Row $x");
       List<Widget> rowWidget = [];
       Row r = Row(
         children: rowWidget,
@@ -285,10 +284,14 @@ class MobileResumeContentsState extends State<MobileResumeContents> {
       if (x * 3 + 1 < data.length) {
         rowWidget
             .add(buildSingleLanguageTermometerItem(query, data[x * 3 + 1]));
+      } else {
+        rowWidget.add(rowSpacing());
       }
       if (x * 3 + 2 < data.length) {
         rowWidget
             .add(buildSingleLanguageTermometerItem(query, data[x * 3 + 2]));
+      } else {
+        rowWidget.add(rowSpacing());
       }
       result.add(r);
       result.add(SizedBox(
@@ -314,14 +317,9 @@ class MobileResumeContentsState extends State<MobileResumeContents> {
         ),
         Positioned(
           bottom: 0,
-          left: 0,
-          right: 0,
-          child: SizedBox(
-            width: query.size.width * 0.01,
-            child: FittedBox(
-              fit: BoxFit.scaleDown,
-              child: Text(languageName),
-            ),
+          child: Text(
+            languageName,
+            style: const TextStyle(fontSize: 6),
           ),
         )
       ],
@@ -344,6 +342,13 @@ class MobileResumeContentsState extends State<MobileResumeContents> {
           ),
         ),
       ),
+    );
+  }
+
+  Widget rowSpacing() {
+    return const Expanded(
+      flex: 1,
+      child: SizedBox(),
     );
   }
 }
