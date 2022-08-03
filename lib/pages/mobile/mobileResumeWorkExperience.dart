@@ -164,7 +164,6 @@ class MobileResumeContentsState extends State<MobileResumeContents> {
       }
       result.addAll(buildSection(query, "Awards"));
       widget.data?["awards"].forEach((element) => {
-            print(element),
             result.addAll(buildSectionData(
                 query,
                 element["name"],
