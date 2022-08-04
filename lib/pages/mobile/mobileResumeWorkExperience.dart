@@ -113,6 +113,7 @@ class MobileResumeContentsState extends State<MobileResumeContents> {
               );
             } else {
               return ListView(
+                controller: ScrollController(),
                 padding: const EdgeInsets.symmetric(horizontal: 20),
                 children: snapshot.data!,
               );

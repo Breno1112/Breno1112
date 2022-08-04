@@ -19,6 +19,7 @@ class MobileResumeState extends State<MobileResume> {
     return Container(
       color: ColorHelper.blueResumeColor,
       child: ListView(
+        controller: ScrollController(),
         padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 40),
         children: getMobileWidgetList(query, widget.data),
       ),

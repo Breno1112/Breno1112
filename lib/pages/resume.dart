@@ -7,6 +7,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:url_launcher/url_launcher.dart';
 
+import 'mobile/mobileResumeWorkExperience.dart';
+
 class Resume extends StatefulWidget {
   const Resume({Key? key}) : super(key: key);
 
@@ -56,8 +58,21 @@ class ResumeState extends State<Resume> {
   }
 
   Widget buildTabletScreen(Map<String, dynamic>? data) {
-    return Container(
-      color: Colors.green,
+    return Row(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: [
+        Expanded(
+            flex: 1,
+            child: MobileResume(
+              data: data,
+            )),
+        Expanded(
+          flex: 1,
+          child: Stack(
+            children: [MobileResumeContents(data: data)],
+          ),
+        ),
+      ],
     );
   }
 
@@ -66,42 +81,14 @@ class ResumeState extends State<Resume> {
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
         Expanded(
-          flex: 1,
-          child: Container(
-            color: const Color.fromRGBO(8, 12, 51, 1),
-            child: Padding(
-              padding: const EdgeInsets.symmetric(
-                horizontal: 20,
-                vertical: 40,
-              ),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.symmetric(
-                      vertical: 20,
-                    ),
-                    child: FittedBox(
-                      fit: BoxFit.cover,
-                      child: Text(
-                        data?["name"],
-                        style: const TextStyle(color: Colors.white),
-                      ),
-                    ),
-                  )
-                ],
-              ),
-            ),
-          ),
-        ),
+            flex: 1,
+            child: MobileResume(
+              data: data,
+            )),
         Expanded(
-          flex: 2,
+          flex: 1,
           child: Stack(
-            children: [
-              Container(
-                color: Colors.white,
-              ),
-            ],
+            children: [MobileResumeContents(data: data)],
           ),
         ),
       ],
