@@ -1,0 +1,15 @@
+.intro {
+    background-color: yellow;
+}
+
+.center {
+    margin: auto;
+    width: 50%;
+    padding: 10px;
+}
+
+.full-width {
+    width: 100vh;
+    height: 100vh;
+    top: 50%
+}

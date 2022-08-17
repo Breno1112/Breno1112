@@ -1,0 +1,83 @@
+{
+    "profile_image": "breno3x4.png",
+    "name": "Breno Rodrigo Fachini",
+    "profession_shortname": "Software Engineer",
+    "short_description": "Building robust and test-oriented solutions to make the world a better place",
+    "email": "contato.brenofachini@hotmail.com",
+    "phone": "+55 (11) 95719-8000",
+    "website": "https://brenofachini.webnode.pt",
+    "skills": [
+        {
+            "name": "Java",
+            "value": 0.5
+        },
+        {
+            "name": "Project management",
+            "value": 0.5
+        },
+        {
+            "name": "Leadership",
+            "value": 0.8
+        }
+    ],
+    "work_experience": [
+        {
+            "job_title": "Software Engineer",
+            "company_name": "Itaú Unibanco",
+            "start_date": "20210405",
+            "end_date": "20210405",
+            "tasks": [
+                "Develop web applications with Angular framework"
+            ]
+        },
+        {
+            "job_title": "Software Engineer",
+            "company_name": "Accenture",
+            "start_date": "20210405",
+            "end_date": "20210405",
+            "tasks": [
+                "Develop web applications with Angular framework"
+            ]
+        }
+    ],
+    "awards": [
+        {
+            "name": "High performance Acchievement",
+            "description": "",
+            "company_name": "Itaú Unibanco",
+            "start_date": "20220101"
+        }
+    ],
+    "education": [
+        {
+            "type": "Primary school",
+            "school_name": "Colégio Aliado - Unidade Jardim Japão",
+            "start_date": "20070101",
+            "end_date": "20181231"
+        },
+        {
+            "type": "Primary school",
+            "school_name": "Colégio Aliado - Unidade Jardim Japão",
+            "start_date": "20070101",
+            "end_date": "20181231"
+        }
+    ],
+    "languages": [
+        {
+            "name": "Japanese",
+            "level": 1
+        },
+        {
+            "name": "Spanish",
+            "level": 0.5
+        },
+        {
+            "name": "English",
+            "level": 1
+        },
+        {
+            "name": "Portuguese",
+            "level": 0.5
+        }
+    ]
+}

@@ -1,1 +1,13 @@
-<p>resume-main-screen works!</p>
+<mat-spinner class="full-width center" *ngIf="!loaded"></mat-spinner>
+
+<div *ngIf="loaded && checkScreenType(screenType) === 'MOBILE'">
+    <p>mobile</p>
+</div>
+
+<div *ngIf="loaded && checkScreenType(screenType) === 'DESKTOP'">
+    <p>desktop</p>
+</div>
+
+<div *ngIf="loaded && checkScreenType(screenType) === 'WIDE'">
+    <p>wide</p>
+</div>
