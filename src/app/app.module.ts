@@ -8,13 +8,17 @@ import { ResumeMainScreenComponent } from './components/resume-main-screen/resum
 import { HttpClientModule } from '@angular/common/http';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { ResumeMobileScreenComponent } from './components/resume-mobile-screen/resume-mobile-screen.component';
+import { ResumeDesktopScreenComponent } from './components/resume-desktop-screen/resume-desktop-screen.component';
+import { ResumeWideScreenComponent } from './components/resume-wide-screen/resume-wide-screen.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     ResumeMainScreenComponent,
-    ResumeMobileScreenComponent
+    ResumeMobileScreenComponent,
+    ResumeDesktopScreenComponent,
+    ResumeWideScreenComponent
   ],
   imports: [
     HttpClientModule,
