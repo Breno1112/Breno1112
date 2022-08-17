@@ -11,6 +11,7 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatListModule} from '@angular/material/list';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 import {MatGridListModule} from '@angular/material/grid-list';
+import {MatCardModule} from '@angular/material/card';
 import { ResumeMobileScreenComponent } from './components/resume-mobile-screen/resume-mobile-screen.component';
 import { ResumeDesktopScreenComponent } from './components/resume-desktop-screen/resume-desktop-screen.component';
 import { ResumeWideScreenComponent } from './components/resume-wide-screen/resume-wide-screen.component';
@@ -33,7 +34,8 @@ import { ResumeWideScreenComponent } from './components/resume-wide-screen/resum
     MatIconModule,
     MatListModule,
     MatProgressBarModule,
-    MatGridListModule
+    MatGridListModule,
+    MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent]
