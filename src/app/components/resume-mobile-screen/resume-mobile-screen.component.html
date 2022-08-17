@@ -46,6 +46,29 @@
 </div>
 <div class="professional-details">
     <div class="small-padding">
+        <h1 class="professional-detail-font center-left-text title-font bold">Education</h1>
+    </div>
+    <mat-list>
+        <mat-list-item *ngFor="let education of data.education" class="professional-detail-font">
+          <mat-icon mat-list-icon>school</mat-icon>
+          <div mat-line>{{education.school_name}}</div>
+          <div mat-line> {{parse_date(education.start_date) | date}} - {{parse_date(education.end_date) | date}}</div>
+        </mat-list-item>
+    </mat-list>
+    <div class="small-padding">
+        <h1 class="professional-detail-font center-left-text title-font bold">Awards</h1>
+    </div>
+    <mat-list>
+        <mat-list-item *ngFor="let award of data.awards" class="professional-detail-font">
+          <mat-icon mat-list-icon svgIcon="trophy"></mat-icon>
+          <div mat-line>{{award.name}}</div>
+          <div mat-line>{{award.company_name}}</div>
+          <div mat-line> {{parse_date(award.start_date) | date}}</div>
+        </mat-list-item>
+    </mat-list>
+    <div class="small-padding">
         <h1 class="professional-detail-font center-left-text title-font bold">Work experience</h1>
+    </div>
+    <div id="pointer">
     </div>
 </div>

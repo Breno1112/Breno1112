@@ -96,3 +96,31 @@ mat-progress-bar {
 .professional-detail-font {
     color: #080C33;
 }
+
+#pointer {
+    width: 95%;
+    height: 40px;
+    position: relative;
+    background: #080C33;
+  }
+  #pointer:after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 0;
+    border-top: 20px solid transparent;
+    border-bottom: 20px solid transparent;
+  }
+  #pointer:before {
+    content: "";
+    position: absolute;
+    right: -20px;
+    bottom: 0;
+    width: 0;
+    height: 0;
+    border-left: 20px solid #080C33;
+    border-top: 20px solid transparent;
+    border-bottom: 20px solid transparent;
+  }
