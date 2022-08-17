@@ -72,3 +72,15 @@
 mat-grid-tile mat-grid-tile-footer {
     background: transparent;
   }
+
+  mat-progress-bar {
+    height: 20%;
+  }
+
+  :host ::ng-deep .mat-progress-bar .mat-progress-bar-fill::after {
+    background-color: white;
+    }
+
+    :host ::ng-deep .mat-progress-bar-buffer {
+        background-color: #4C5056;
+    }
