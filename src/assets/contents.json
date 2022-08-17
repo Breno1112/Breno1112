@@ -8,10 +8,6 @@
     "website": "https://brenofachini.webnode.pt",
     "skills": [
         {
-            "name": "Java",
-            "value": 50
-        },
-        {
             "name": "Project management",
             "value": 50
         },
@@ -20,46 +16,203 @@
             "value": 80
         }
     ],
+    "programming_languages": [
+        {
+            "name": "Java",
+            "value": 90
+        },
+        {
+            "name": "Python",
+            "value": 80
+        },
+        {
+            "name": "C#",
+            "value": 20
+        },
+        {
+            "name": "Rust",
+            "value": 20
+        },
+        {
+            "name": "Golang",
+            "value": 20
+        },
+        {
+            "name": "C",
+            "value": 20
+        },
+        {
+            "name": "C++",
+            "value": 20
+        },
+        {
+            "name": "Javascript",
+            "value": 95
+        },
+        {
+            "name": "Typescript",
+            "value": 95
+        },
+        {
+            "name": "R",
+            "value": 10
+        },
+        {
+            "name": "Dart",
+            "value": 60
+        },
+        {
+            "name": "Kotlin",
+            "value": 60
+        }
+    ],
+    "frameworks_and_tools": [
+        {
+            "name": "AWS",
+            "value": 80
+        },
+        {
+            "name": "GCP",
+            "value": 60
+        },
+        {
+            "name": "Azure",
+            "value": 10
+        },
+        {
+            "name": "Springboot",
+            "value": 80
+        },
+        {
+            "name": "Docker",
+            "value": 80
+        },
+        {
+            "name": "Kubernetes",
+            "value": 70
+        },
+        {
+            "name": "Angular",
+            "value": 80
+        },
+        {
+            "name": "AngularJS",
+            "value": 80
+        },
+        {
+            "name": "Springboot",
+            "value": 80
+        },
+        {
+            "name": "Flask",
+            "value": 80
+        },
+        {
+            "name": "Django",
+            "value": 20
+        },
+        {
+            "name": "Ionic",
+            "value": 50
+        },
+        {
+            "name": "Flutter",
+            "value": 60
+        },
+        {
+            "name": "React",
+            "value": 5
+        },
+        {
+            "name": "Android",
+            "value": 70
+        },
+        {
+            "name": "Swagger",
+            "value": 100
+        },
+        {
+            "name": "Linux",
+            "value": 70
+        }
+    ],
     "work_experience": [
         {
             "job_title": "Software Engineer",
             "company_name": "Itaú Unibanco",
             "start_date": "2021-04-05",
-            "end_date": "2021-04-05",
+            "end_date": "Present",
             "tasks": [
                 "Develop web applications with Angular framework"
             ]
+        },
+        {
+            "job_title": "Software Engineering tech-lead",
+            "company_name": "Accenture",
+            "start_date": "2021-01-01",
+            "end_date": "2021-04-04"
         },
         {
             "job_title": "Software Engineer",
             "company_name": "Accenture",
-            "start_date": "2021-04-05",
-            "end_date": "2021-04-05",
-            "tasks": [
-                "Develop web applications with Angular framework"
-            ]
+            "start_date": "2021-09-01",
+            "end_date": "2021-12-31"
+        },
+        {
+            "job_title": "Software Engineer",
+            "company_name": "Vector ITC Group",
+            "start_date": "2020-09-09",
+            "end_date": "2021-8-17"
+        },
+        {
+            "job_title": "English Teacher",
+            "company_name": "Colégio Novo Método",
+            "start_date": "2019-09-13",
+            "end_date": "2020-09-06"
         }
     ],
     "awards": [
         {
-            "name": "High performance Acchievement",
+            "name": "High performance Achievement",
             "description": "",
             "company_name": "Itaú Unibanco",
-            "start_date": "2022-01-01"
+            "start_date": "2022-02-01"
         }
     ],
     "education": [
         {
-            "type": "Primary school",
-            "school_name": "Colégio Aliado - Unidade Jardim Japão",
+            "type": "Primary to High School",
+            "school_name": "Colégio Aliado",
             "start_date": "2007-01-01",
             "end_date": "2018-12-31"
         },
         {
-            "type": "Primary school",
-            "school_name": "Colégio Aliado - Unidade Jardim Japão",
+            "type": "College",
+            "subject": "Database Systems & Administration",
+            "school_name": "Faculdade Impacta Tecnologia",
             "start_date": "2007-01-01",
             "end_date": "2018-12-31"
+        },
+        {
+            "type": "Course",
+            "subject": "English language and culture",
+            "school_name": "CNA",
+            "start_date": "2010-08-01",
+            "end_date": "2017-07-09"
+        },
+        {
+            "type": "Course",
+            "subject": "Japanese language and culture",
+            "school_name": "NipponGu",
+            "start_date": "2017-05-01",
+            "end_date": "Present"
+        },
+        {
+            "type": "Course",
+            "subject": "Spanish language and culture",
+            "school_name": "CNA",
+            "start_date": "2022-08-20",
+            "end_date": "Present"
         }
     ],
     "languages": [
@@ -77,7 +230,45 @@
         },
         {
             "name": "Portuguese",
-            "level": 90
+            "level": 100
+        }
+    ],
+    "certifications": [
+        {
+            "name": "ESOL International(First) - FCE",
+            "description": "",
+            "start_date": "2017-08-29",
+            "issuer": "Cambridge University"
+        },
+        {
+            "name": "Certified Cloud Practitioner",
+            "description": "",
+            "start_date": "2021-08-02",
+            "issuer": "Amazon Web Services(AWS)"
+        },
+        {
+            "name": "Fundamentos de RPA",
+            "description": "",
+            "start_date": "2019-7-18",
+            "issuer": "Faculdade Impacta Tecnologia & YKP"
+        },
+        {
+            "name": "日本語能力試験五級",
+            "description": "Japanese Language Proficiency Test N5",
+            "start_date": "2019-01-10",
+            "issuer": "Japan Education & Exchange Services"
+        },
+        {
+            "name": "日本語能力試験四級",
+            "description": "Japanese Language Proficiency Test N4",
+            "start_date": "2020-01-19",
+            "issuer": "Japan Education & Exchange Services"
+        },
+        {
+            "name": "日本語能力試験三級",
+            "description": "Japanese Language Proficiency Test N3",
+            "start_date": "2022-01-13",
+            "issuer": "Japan Education & Exchange Services"
         }
     ]
 }

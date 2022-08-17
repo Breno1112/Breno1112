@@ -18,6 +18,10 @@ export class ResumeMobileScreenComponent implements OnInit {
       "trophy",
       this.domSanitizer.bypassSecurityTrustResourceUrl("assets/icons/trophy.svg")
     );
+    this.matIconRegistry.addSvgIcon(
+      "certificate-outline",
+      this.domSanitizer.bypassSecurityTrustResourceUrl("assets/icons/certificate-outline.svg")
+    );
   }
 
   ngOnInit(): void {
