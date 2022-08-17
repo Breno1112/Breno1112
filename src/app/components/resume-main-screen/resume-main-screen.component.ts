@@ -24,7 +24,7 @@ export class ResumeMainScreenComponent implements OnInit {
 
   ngOnInit(): void {
     this.setScreenType();
-    this.httpClient.get("../../../assets/contents.json").subscribe((data) => {
+    this.httpClient.get("assets/contents.json").subscribe((data) => {
       this.data = data;
       this.loaded = true;
     });
