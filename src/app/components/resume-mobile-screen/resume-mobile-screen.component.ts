@@ -35,4 +35,12 @@ export class ResumeMobileScreenComponent implements OnInit {
     return result;
   }
 
+  mailMe(email: string) {
+    window.location.href = `mailto:${email}`;
+  }
+
+  phoneMe(phone: string) {
+    window.location.href = `tel:${phone}`;
+  }
+
 }

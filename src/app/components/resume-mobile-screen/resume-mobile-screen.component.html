@@ -17,11 +17,11 @@
     <mat-list>
         <mat-list-item>
             <mat-icon mat-list-icon class="white-icon">email</mat-icon>
-            <div mat-line class="contact-font">{{data.email}}</div>
+            <div mat-line class="contact-font" (click)="mailMe(data.email)">{{data.email}}</div>
         </mat-list-item>
         <mat-list-item>
             <mat-icon mat-list-icon class="white-icon">phone</mat-icon>
-            <div mat-line class="contact-font">{{data.phone}}</div>
+            <div mat-line class="contact-font" (click)="phoneMe(data.phone)">{{data.phone}}</div>
         </mat-list-item>
     </mat-list>
     <div class="small-padding">

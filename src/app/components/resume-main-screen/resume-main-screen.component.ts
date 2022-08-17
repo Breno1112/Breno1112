@@ -49,5 +49,4 @@ export class ResumeMainScreenComponent implements OnInit {
     const to_return = Object.keys(ScreenType)[result];
     return to_return;
   }
-
 }
