@@ -1,13 +1,13 @@
 <mat-spinner class="full-width center" *ngIf="!loaded"></mat-spinner>
 
 <div *ngIf="loaded && checkScreenType(screenType) === 'MOBILE'">
-    <p>mobile</p>
+    <app-resume-mobile-screen [data]="data"></app-resume-mobile-screen>
 </div>
 
 <div *ngIf="loaded && checkScreenType(screenType) === 'DESKTOP'">
-    <p>desktop</p>
+    <app-resume-desktop-screen [data]="data"></app-resume-desktop-screen>
 </div>
 
 <div *ngIf="loaded && checkScreenType(screenType) === 'WIDE'">
-    <p>wide</p>
+    <app-resume-wide-screen [data]="data"></app-resume-wide-screen>
 </div>

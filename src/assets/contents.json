@@ -1,23 +1,23 @@
 {
-    "profile_image": "breno3x4.png",
+    "profile_image": "assets/breno3x4.png",
     "name": "Breno Rodrigo Fachini",
     "profession_shortname": "Software Engineer",
     "short_description": "Building robust and test-oriented solutions to make the world a better place",
-    "email": "contato.brenofachini@hotmail.com",
+    "email": "dev.brenofachini@gmail.com",
     "phone": "+55 (11) 95719-8000",
     "website": "https://brenofachini.webnode.pt",
     "skills": [
         {
             "name": "Java",
-            "value": 0.5
+            "value": 50
         },
         {
             "name": "Project management",
-            "value": 0.5
+            "value": 50
         },
         {
             "name": "Leadership",
-            "value": 0.8
+            "value": 80
         }
     ],
     "work_experience": [
