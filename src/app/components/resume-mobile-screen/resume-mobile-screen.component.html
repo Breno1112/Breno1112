@@ -56,6 +56,32 @@
         </mat-list-item>
     </mat-list>
     <div class="small-padding">
+        <h1 class="professional-detail-font center-left-text title-font bold">Languages</h1>
+    </div>
+    <div class="small-horizontal-padding">
+        <mat-grid-list cols="4" rowHeight="50px">
+            <div *ngFor="let language of data.languages">
+                <mat-grid-tile colspan="2" rowspan="1">
+                    <mat-grid-tile-footer><p class="professional-detail-font">{{language.name}}</p></mat-grid-tile-footer>
+                </mat-grid-tile>
+                <mat-grid-tile colspan="2" rowspan="1">
+                    <mat-progress-bar mode="determinate" [value]="language.level" class="small-left-padding" id="language-progress-bar"></mat-progress-bar>
+                </mat-grid-tile>
+            </div>
+        </mat-grid-list>
+    </div>
+    <div class="small-padding">
+        <h1 class="professional-detail-font center-left-text title-font bold">Work experience</h1>
+    </div>
+    <mat-list>
+        <mat-list-item *ngFor="let work of data.work_experience" class="professional-detail-font">
+          <mat-icon mat-list-icon>work</mat-icon>
+          <div mat-line>{{work.job_title}}</div>
+          <div mat-line>{{work.company_name}}</div>
+          <div mat-line>{{parse_date(work.start_date) | date}} - {{parse_date(work.end_date) | date}}</div>
+        </mat-list-item>
+    </mat-list>
+    <div class="small-padding">
         <h1 class="professional-detail-font center-left-text title-font bold">Awards</h1>
     </div>
     <mat-list>
@@ -66,9 +92,4 @@
           <div mat-line> {{parse_date(award.start_date) | date}}</div>
         </mat-list-item>
     </mat-list>
-    <div class="small-padding">
-        <h1 class="professional-detail-font center-left-text title-font bold">Work experience</h1>
-    </div>
-    <div id="pointer">
-    </div>
 </div>

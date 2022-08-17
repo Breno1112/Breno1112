@@ -65,19 +65,19 @@
     "languages": [
         {
             "name": "Japanese",
-            "level": 1
+            "level": 50
         },
         {
             "name": "Spanish",
-            "level": 0.5
+            "level": 50
         },
         {
             "name": "English",
-            "level": 1
+            "level": 70
         },
         {
             "name": "Portuguese",
-            "level": 0.5
+            "level": 90
         }
     ]
 }
