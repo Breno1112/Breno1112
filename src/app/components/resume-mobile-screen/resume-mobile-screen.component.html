@@ -31,20 +31,16 @@
     <div class="small-padding">
         <h1 class="contact-font center-text title-font bold">Skills</h1>
     </div>
-    <!-- <mat-list *ngFor="let skill of data.skills">
-        <mat-list-item>
-            <p class="contact-font">{{skill.name}}</p>
-            <mat-progress-bar mode="determinate" [value]="skill.value" class="small-left-padding"></mat-progress-bar>
-          </mat-list-item>
-    </mat-list> -->
-    <mat-grid-list cols="4" rowHeight="50px">
-        <div *ngFor="let skill of data.skills">
-            <mat-grid-tile colspan="2" rowspan="1">
-                <p class="contact-font">{{skill.name}}</p>
-            </mat-grid-tile>
-            <mat-grid-tile colspan="2" rowspan="1">
-                <mat-progress-bar mode="determinate" [value]="skill.value" class="small-left-padding"></mat-progress-bar>
-            </mat-grid-tile>
-        </div>
-    </mat-grid-list>
+    <div class="small-horizontal-padding">
+        <mat-grid-list cols="4" rowHeight="50px">
+            <div *ngFor="let skill of data.skills">
+                <mat-grid-tile colspan="2" rowspan="1">
+                    <mat-grid-tile-footer class="contact-font"><p>{{skill.name}}</p></mat-grid-tile-footer>
+                </mat-grid-tile>
+                <mat-grid-tile colspan="2" rowspan="1">
+                    <mat-progress-bar mode="determinate" [value]="skill.value" class="small-left-padding"></mat-progress-bar>
+                </mat-grid-tile>
+            </div>
+        </mat-grid-list>
+    </div>
 </div>

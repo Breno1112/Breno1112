@@ -29,8 +29,8 @@
 }
 
 .small-horizontal-padding {
-    padding-left: 4%;
-    padding-right: 4%;
+    margin-left: 4%;
+    margin-right: 4%;
 }
 
 .contact-font {
@@ -68,3 +68,7 @@
 .white-icon {
     color: white;
 }
+
+mat-grid-tile mat-grid-tile-footer {
+    background: transparent;
+  }
