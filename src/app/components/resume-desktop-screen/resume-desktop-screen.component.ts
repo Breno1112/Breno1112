@@ -1,4 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { MatIconRegistry } from '@angular/material/icon';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-resume-desktop-screen',
@@ -7,7 +9,19 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class ResumeDesktopScreenComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private matIconRegistry: MatIconRegistry,
+    private domSanitizer: DomSanitizer
+  ) { 
+    this.matIconRegistry.addSvgIcon(
+      "trophy",
+      this.domSanitizer.bypassSecurityTrustResourceUrl("assets/icons/trophy.svg")
+    );
+    this.matIconRegistry.addSvgIcon(
+      "certificate-outline",
+      this.domSanitizer.bypassSecurityTrustResourceUrl("assets/icons/certificate-outline.svg")
+    );
+  }
 
   @Input("data") public data: any;
 

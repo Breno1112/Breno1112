@@ -1,0 +1,17 @@
+.inner-window {
+    display: flex;
+    flex-direction: row;
+  }
+  
+  .first-column {
+    overflow-y: auto;
+    height: 720px;
+    width: 50%;
+  }
+  
+  .second-column {
+    overflow-y: auto;
+    height: 720px;
+    width: 50%;
+  }
+  
