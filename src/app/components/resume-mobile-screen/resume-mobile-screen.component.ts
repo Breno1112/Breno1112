@@ -9,7 +9,6 @@ import { DomSanitizer } from '@angular/platform-browser';
 })
 export class ResumeMobileScreenComponent implements OnInit {
   @Input() data: any;
-  public profile_image: string = "";
   constructor(
     private matIconRegistry: MatIconRegistry,
     private domSanitizer: DomSanitizer
@@ -25,22 +24,5 @@ export class ResumeMobileScreenComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.profile_image = this.data["profile_image"];
-    console.log(this.data);
   }
-
-  parse_date(str: string) {
-    const result = new Date(str);
-    result.setDate(result.getDate() + 1);
-    return result;
-  }
-
-  mailMe(email: string) {
-    window.location.href = `mailto:${email}`;
-  }
-
-  phoneMe(phone: string) {
-    window.location.href = `tel:${phone}`;
-  }
-
 }

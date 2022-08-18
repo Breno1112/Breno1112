@@ -1,0 +1,42 @@
+<div class="contact-info">
+    <div class="profile-picture">
+        <img [src]="data.profile_image" alt="profile-image">
+    </div>
+    <div class="small-padding">
+        <h1 class="contact-font center-text title-font bold">{{data.name}}</h1>
+    </div>
+    <div class="smallest-padding center-text">
+        <h2 class="subtitle-font contact-font">{{data.profession_shortname}}</h2>
+    </div>
+    <div class="smallest-padding center-text">
+        <h2 class="contact-font small-line-height content-font">{{data.short_description}}</h2>
+    </div>
+    <div class="small-padding">
+        <h1 class="contact-font center-text title-font bold">Contact-me</h1>
+    </div>
+    <mat-list>
+        <mat-list-item>
+            <mat-icon mat-list-icon class="white-icon">email</mat-icon>
+            <div mat-line class="contact-font" (click)="mailMe(data.email)">{{data.email}}</div>
+        </mat-list-item>
+        <mat-list-item>
+            <mat-icon mat-list-icon class="white-icon">phone</mat-icon>
+            <div mat-line class="contact-font" (click)="phoneMe(data.phone)">{{data.phone}}</div>
+        </mat-list-item>
+    </mat-list>
+    <div class="small-padding">
+        <h1 class="contact-font center-text title-font bold">Skills</h1>
+    </div>
+    <div class="small-horizontal-padding">
+        <mat-grid-list cols="4" rowHeight="50px">
+            <div *ngFor="let skill of data.skills">
+                <mat-grid-tile colspan="2" rowspan="1">
+                    <mat-grid-tile-footer class="contact-font"><p>{{skill.name}}</p></mat-grid-tile-footer>
+                </mat-grid-tile>
+                <mat-grid-tile colspan="2" rowspan="1">
+                    <mat-progress-bar mode="determinate" [value]="skill.value" class="small-left-padding"></mat-progress-bar>
+                </mat-grid-tile>
+            </div>
+        </mat-grid-list>
+    </div>
+</div>

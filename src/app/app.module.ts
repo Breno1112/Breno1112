@@ -15,6 +15,8 @@ import {MatCardModule} from '@angular/material/card';
 import { ResumeMobileScreenComponent } from './components/resume-mobile-screen/resume-mobile-screen.component';
 import { ResumeDesktopScreenComponent } from './components/resume-desktop-screen/resume-desktop-screen.component';
 import { ResumeWideScreenComponent } from './components/resume-wide-screen/resume-wide-screen.component';
+import { PersonalInfoComponent } from './components/personal-info/personal-info.component';
+import { ProfissionalInfoComponent } from './components/profissional-info/profissional-info.component';
 
 
 @NgModule({
@@ -23,7 +25,9 @@ import { ResumeWideScreenComponent } from './components/resume-wide-screen/resum
     ResumeMainScreenComponent,
     ResumeMobileScreenComponent,
     ResumeDesktopScreenComponent,
-    ResumeWideScreenComponent
+    ResumeWideScreenComponent,
+    PersonalInfoComponent,
+    ProfissionalInfoComponent
   ],
   imports: [
     HttpClientModule,
