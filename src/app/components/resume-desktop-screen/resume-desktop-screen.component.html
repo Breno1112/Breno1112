@@ -8,10 +8,10 @@
 </mat-grid-list> -->
 
 <div class="inner-window">
-    <div class="first-column">
+    <div class="first-column" [style.height]="calculateHeight()">
         <app-personal-info [data]="data"></app-personal-info>
     </div>
-    <div style="background: green" class="second-column">
+    <div style="background: green" class="second-column" [style.height]="calculateHeight()">
         <app-profissional-info [data]="data"></app-profissional-info>
 
     </div>

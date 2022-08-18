@@ -8,6 +8,7 @@ import { DomSanitizer } from '@angular/platform-browser';
   styleUrls: ['./resume-desktop-screen.component.css']
 })
 export class ResumeDesktopScreenComponent implements OnInit {
+  private lastCalculatedLeastHeight: number | undefined = undefined;
 
   constructor(
     private matIconRegistry: MatIconRegistry,
@@ -26,6 +27,14 @@ export class ResumeDesktopScreenComponent implements OnInit {
   @Input("data") public data: any;
 
   ngOnInit(): void {
+  }
+
+  calculateHeight() {
+    const got = window.innerHeight;
+    if(!this.lastCalculatedLeastHeight || got < this.lastCalculatedLeastHeight) {
+      this.lastCalculatedLeastHeight = got;
+    }
+    return `${this.lastCalculatedLeastHeight}px`;
   }
 
 }

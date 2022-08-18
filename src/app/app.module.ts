@@ -12,6 +12,8 @@ import {MatListModule} from '@angular/material/list';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MatCardModule} from '@angular/material/card';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 import { ResumeMobileScreenComponent } from './components/resume-mobile-screen/resume-mobile-screen.component';
 import { ResumeDesktopScreenComponent } from './components/resume-desktop-screen/resume-desktop-screen.component';
 import { ResumeWideScreenComponent } from './components/resume-wide-screen/resume-wide-screen.component';
@@ -39,7 +41,9 @@ import { ProfissionalInfoComponent } from './components/profissional-info/profis
     MatListModule,
     MatProgressBarModule,
     MatGridListModule,
-    MatCardModule
+    MatCardModule,
+    MatFormFieldModule,
+    MatInputModule
   ],
   providers: [],
   bootstrap: [AppComponent]
