@@ -167,32 +167,54 @@
             "start_date": "2021-04-05",
             "end_date": "Present",
             "tasks": [
-                "Develop web applications with Angular framework"
+                {
+                    "description": "Develop web applications with Angular framework"
+                }
             ]
         },
         {
             "job_title": "Software Engineering tech-lead",
             "company_name": "Accenture",
             "start_date": "2021-01-01",
-            "end_date": "2021-04-04"
+            "end_date": "2021-04-04",
+            "tasks": [
+                {
+                    "description": "Develop web applications with Angular framework"
+                }
+            ]
         },
         {
             "job_title": "Software Engineer",
             "company_name": "Accenture",
             "start_date": "2021-09-01",
-            "end_date": "2021-12-31"
+            "end_date": "2021-12-31",
+            "tasks": [
+                {
+                    "description": "Develop web applications with Angular framework"
+                }
+            ]
         },
         {
             "job_title": "Software Engineer",
             "company_name": "Vector ITC Group",
             "start_date": "2020-09-09",
-            "end_date": "2021-8-17"
+            "end_date": "2021-8-17",
+            "tasks": [
+                {
+                    "description": "Develop web applications with Angular framework"
+                }
+            ]
         },
         {
             "job_title": "English Teacher",
             "company_name": "Colégio Novo Método",
             "start_date": "2019-09-13",
-            "end_date": "2020-09-06"
+            "end_date": "2020-09-06",
+            "tasks": [
+                {
+                    "description": "Develop web applications with Angular framework"
+                }
+            ]
         }
     ],
     "awards": [
