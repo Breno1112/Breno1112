@@ -47,6 +47,7 @@ export class ResumeMainScreenComponent implements OnInit {
     const values = Object.values(ScreenType);
     const result = values.indexOf(screenType);
     const to_return = Object.keys(ScreenType)[result];
+    this.data.screenType = to_return;
     return to_return;
   }
 }

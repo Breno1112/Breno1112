@@ -1,5 +1,5 @@
 import { NestedTreeControl } from '@angular/cdk/tree';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { MatIconRegistry } from '@angular/material/icon';
 import { MatTreeNestedDataSource } from '@angular/material/tree';
 import { DomSanitizer } from '@angular/platform-browser';
@@ -10,7 +10,7 @@ import { WorkExperience } from 'src/app/types/work.experience.type';
   templateUrl: './profissional-info.component.html',
   styleUrls: ['./profissional-info.component.css']
 })
-export class ProfissionalInfoComponent implements OnInit {
+export class ProfissionalInfoComponent implements OnInit, OnChanges {
   @Input() data: any;
 
   public treeControl = new NestedTreeControl<WorkExperience>(node => node.tasks);
@@ -28,6 +28,9 @@ export class ProfissionalInfoComponent implements OnInit {
       "certificate-outline",
       this.domSanitizer.bypassSecurityTrustResourceUrl("assets/icons/certificate-outline.svg")
     );
+  }
+  ngOnChanges(changes: SimpleChanges): void {
+    console.log(changes);
   }
 
   ngOnInit(): void {

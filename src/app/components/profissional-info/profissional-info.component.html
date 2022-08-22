@@ -41,7 +41,17 @@
     <div class="small-padding">
         <h1 class="professional-detail-font center-left-text title-font bold">Work experience</h1>
     </div>
-    <mat-tree [dataSource]="dataSource" [treeControl]="treeControl" class="example-tree">
+    <mat-list *ngIf="data.screenType === 'WIDE'">
+        <mat-list-item *ngFor="let work of data.work_experience" class="professional-detail-font">
+          <mat-icon mat-list-icon>work</mat-icon>
+          <div *ngIf="work.job_title != undefined" mat-line>{{work.job_title}}</div>
+          <div mat-line>{{work.company_name}}</div>
+          <div *ngIf="work.end_date === 'Present'" mat-line>{{parse_date(work.start_date) | date}} - Present</div>
+          <div *ngIf="work.end_date != 'Present'" mat-line>{{parse_date(work.start_date) | date}} - {{parse_date(work.end_date) | date}}</div>
+          <mat-icon>info_outlined</mat-icon>
+        </mat-list-item>
+    </mat-list>
+    <mat-tree [dataSource]="dataSource" [treeControl]="treeControl" class="example-tree" *ngIf="data.screenType != 'WIDE'">
         <!-- This is the tree node template for leaf nodes -->
         <!-- There is inline padding applied to this node using styles.
           This padding value depends on the mat-icon-button width. -->
