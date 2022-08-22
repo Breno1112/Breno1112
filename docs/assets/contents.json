@@ -167,32 +167,141 @@
             "start_date": "2021-04-05",
             "end_date": "Present",
             "tasks": [
-                "Develop web applications with Angular framework"
+                {
+                    "description": "Led the migration to all APIs of my community, resulting in a monthly cost-reduction of 1.2 million BRL."
+                },
+                {
+                    "description": "Proposed many architectural designs, which made me a chapter cloud. Being a chapter cloud means being a common refference in all cloud-related subjects."
+                },
+                {
+                    "description": "Actively participated as a security champion building security-oriented architectural designs to attend to other teams's solutions. Being a security champion means I have had proper security training to both design and build my solutions and also help others with security problems that may occur"
+                },
+                {
+                    "description": "Participated in many war-rooms and have always been remarkably remembered by my colleagues for my calm and great judgement of the situation."
+                },
+                {
+                    "description": "Actively pre-anticipated problems and led war-rooms to make a solid and durational solutions."
+                },
+                {
+                    "description": "Built many POCs to test different methods and technologies to both instigate and encourage innovation always embracing development and architectural best-practices."
+                },
+                {
+                    "description": "Build CloudFormation and Terraform templates do deploy and versionate infrastructure as code."
+                }
             ]
         },
         {
             "job_title": "Software Engineering tech-lead",
             "company_name": "Accenture",
             "start_date": "2021-01-01",
-            "end_date": "2021-04-04"
+            "end_date": "2021-04-04",
+            "tasks": [
+                {
+                    "description": "Have been remarkably remembered by my colleagues for my calm and objective thinking"
+                },
+                {
+                    "description": "Researched software development best practices"
+                },
+                {
+                    "description": "Tracked and managed tasks and time with Jira"
+                },
+                {
+                    "description": "Helped my team become the greatest team of the entire project by teaching them a better objective-thinking strategy and helping them with the code and CI/CD tools"
+                },
+                {
+                    "description": "Became the greatest refference of the entire project by being aware of all problems and future features and by being close to the end customer"
+                },
+                {
+                    "description": "Have been remarkably remembered by my colleagues for my short reaction time to find and fix bugs in the code. I was the one chosen to homologate the software with the director of the company"
+                }
+            ]
         },
         {
             "job_title": "Software Engineer",
             "company_name": "Accenture",
             "start_date": "2021-09-01",
-            "end_date": "2021-12-31"
+            "end_date": "2021-12-31",
+            "tasks": [
+                {
+                    "description": "Built both the front and back end of a financial platform for one of the biggest banks of the world"
+                },
+                {
+                    "description": "Have been remarkably remembered by my colleagues for my great unit testing habilities"
+                },
+                {
+                    "description": "Designed and build micro-services cloud architecture"
+                },
+                {
+                    "description": "Developed software with unit tests and integration tests"
+                }
+            ]
         },
         {
             "job_title": "Software Engineer",
             "company_name": "Vector ITC Group",
             "start_date": "2020-09-09",
-            "end_date": "2021-8-17"
+            "end_date": "2021-8-17",
+            "tasks": [
+                {
+                    "description": "Helped build a fault-tolerant solution envolving an android app, AWS and GPC. It resisted the Google outage in 2020 with no data loss or application impact"
+                },
+                {
+                    "description": "Researched software development best practices"
+                },
+                {
+                    "description": "Have been remarkably remembered by my colleagues for my great unit testing habilities"
+                },
+                {
+                    "description": "Was responsible for the entire security of the customer's AWS and GPC cloud accounts"
+                },
+                {
+                    "description": "Have been remarkably remembered by my colleagues for my great task-automation habilities"
+                },
+                {
+                    "description": "Have been remarkably remembered by my colleagues for my great nack to innovate using the cloud"
+                },
+                {
+                    "description": "Have been remarkably remembered by my colleagues for my great code-reviewing skills"
+                },
+                {
+                    "description": "Was responsible for all project pipelines of my team and great part of the entire company part in Brazil"
+                },
+                {
+                    "description": "Build many pipelines to automate repeated tasks and to integrate many services"
+                },
+                {
+                    "description": "Helped plan future sprints"
+                },
+                {
+                    "description": "Tracked and managed tasks and time with Jira and Trello"
+                },
+                {
+                    "description": "Developed software with unit tests and integration tests"
+                },
+                {
+                    "description": "Build CloudFormation templates do deploy and versionate infrastructure as code."
+                }
+            ]
         },
         {
             "job_title": "English Teacher",
             "company_name": "Colégio Novo Método",
             "start_date": "2019-09-13",
-            "end_date": "2020-09-06"
+            "end_date": "2020-09-06",
+            "tasks": [
+                {
+                    "description": "Taught stutends the English language and culture"
+                },
+                {
+                    "description": "Presented lessons to encourage social interaction while still speaking English"
+                },
+                {
+                    "description": "Presented student's parents with reports about their children both in English and Portuguese"
+                },
+                {
+                    "description": "Attendance tracking both in electronic and digital sheets"
+                }
+            ]
         }
     ],
     "awards": [
@@ -201,6 +310,12 @@
             "description": "",
             "company_name": "Itaú Unibanco",
             "start_date": "2022-02-01"
+        },
+        {
+            "name": "P3000",
+            "description": "Received the greatest promotion of the company in the shortest period of time.",
+            "company_name": "Accenture",
+            "start_date": "2021-11-15"
         }
     ],
     "education": [
