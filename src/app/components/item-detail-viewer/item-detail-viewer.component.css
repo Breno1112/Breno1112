@@ -1,0 +1,32 @@
+.center-text {
+    text-align: center;
+}
+
+.small-padding {
+    padding: 8%;
+}
+
+.medium-padding {
+    padding: 15%;
+}
+
+
+.title-font {
+    font-size: xx-large;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.professional-detail-font {
+    color: #080C33;
+}
+
+.vertical-center {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+  }

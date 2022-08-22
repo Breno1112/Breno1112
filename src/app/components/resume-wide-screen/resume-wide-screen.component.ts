@@ -1,4 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { fromWorkExperiencesToItemDetails, fromWorkExperienceToItemDetail } from 'src/app/helpers/mappers';
+import { ItemDetailViewerType } from 'src/app/types/item.detail.viewer.type';
 
 @Component({
   selector: 'app-resume-wide-screen',
@@ -8,6 +10,7 @@ import { Component, Input, OnInit } from '@angular/core';
 export class ResumeWideScreenComponent implements OnInit {
   private lastCalculatedLeastHeight: number | undefined = undefined;
   private selectedWorkOptionReceived: number | undefined;
+  public viewingdata: ItemDetailViewerType | undefined;
 
   constructor() { }
 
@@ -26,7 +29,7 @@ export class ResumeWideScreenComponent implements OnInit {
 
   selectWorkOption(idx: number) {
     this.selectedWorkOptionReceived = idx;
-    console.log(this.selectedWorkOptionReceived);
+    this.viewingdata = fromWorkExperienceToItemDetail(this.data["work_experience"][this.selectedWorkOptionReceived]);
   }
 
 }

@@ -1,0 +1,7 @@
+<div class="medium-padding" *ngIf="!data">
+    <mat-label class="professional-detail-font bold center-text title-font vertical-center">Selecione um item para começar</mat-label>
+</div>
+
+<div class="small-padding center-text title-font" *ngIf="data" [style.background-color]="'red'">
+    <mat-label class="professional-detail-font bold">{{data.title}}</mat-label>
+</div>

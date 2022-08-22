@@ -20,6 +20,7 @@ import { ResumeDesktopScreenComponent } from './components/resume-desktop-screen
 import { ResumeWideScreenComponent } from './components/resume-wide-screen/resume-wide-screen.component';
 import { PersonalInfoComponent } from './components/personal-info/personal-info.component';
 import { ProfissionalInfoComponent } from './components/profissional-info/profissional-info.component';
+import { ItemDetailViewerComponent } from './components/item-detail-viewer/item-detail-viewer.component';
 
 
 @NgModule({
@@ -30,7 +31,8 @@ import { ProfissionalInfoComponent } from './components/profissional-info/profis
     ResumeDesktopScreenComponent,
     ResumeWideScreenComponent,
     PersonalInfoComponent,
-    ProfissionalInfoComponent
+    ProfissionalInfoComponent,
+    ItemDetailViewerComponent
   ],
   imports: [
     HttpClientModule,

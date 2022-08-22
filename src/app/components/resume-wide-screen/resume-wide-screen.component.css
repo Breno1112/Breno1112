@@ -1,6 +1,6 @@
 .flex-container {
     display: flex;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
     flex-direction: row;
 }
 
@@ -13,22 +13,9 @@
 }
 
 .max-one-third {
-    max-width: 33.33%;
-}
-
-.max-2-4th {
-    max-width: 50%;
-}
-
-.inner-window {
-    display: flex;
-    flex-direction: row;
+    flex: 0 0 33.333333%;
 }
   
-.first-column {
-    overflow-y: auto;
-}
-  
-.second-column {
+.scroll-column {
     overflow-y: auto;
 }
