@@ -1,1 +1,11 @@
-<p>resume-wide-screen works!</p>
+<div class="flex-container inner-window">
+    <div class="flex-expand-2 max-one-third first-column" [style.height]="calculateHeight()">
+        <app-personal-info [data]="data"></app-personal-info>
+    </div>
+    <div class="flex-expand-2 max-one-third second-column" [style.height]="calculateHeight()">
+        <app-profissional-info [data]="data"></app-profissional-info>
+    </div>
+    <div class="flex-expand-8 max-one-third">
+        <p>it works it works it works it works it works it works it works it works it works it works it works </p>
+    </div>
+</div>
