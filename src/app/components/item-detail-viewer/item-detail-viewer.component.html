@@ -1,7 +1,18 @@
 <div class="medium-padding" *ngIf="!data">
-    <mat-label class="professional-detail-font bold center-text title-font vertical-center">Selecione um item para começar</mat-label>
+    <h1 class="mat-display-1 professional-detail-font bold center-text title-font vertical-center">Select a work experience to for details</h1>
 </div>
 
-<div class="small-padding center-text title-font" *ngIf="data" [style.background-color]="'red'">
-    <mat-label class="professional-detail-font bold">{{data.title}}</mat-label>
+<div *ngIf="data">
+    <section class="mat-typography">
+        <div class="small-padding professional-detail-font">
+            <h1 class="bold">{{data.title}}</h1>
+            <h3>{{data.subtitle}}</h3>
+        </div>
+        
+        <ul class="small-padding professional-detail-font">
+            <li *ngFor="let value of data.description_data">
+                <h4>{{value.description}}</h4>
+            </li>
+        </ul>
+    </section>
 </div>

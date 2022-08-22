@@ -5,7 +5,7 @@
     <div class="max-one-third scroll-column" [style.height]="calculateHeight()">
         <app-profissional-info [data]="data" (onSelectedWorkOption)="selectWorkOption($event)"></app-profissional-info>
     </div>
-    <div class="max-one-third">
+    <div class="max-one-third scroll-column" [style.height]="calculateHeight()">
         <app-item-detail-viewer [data]="viewingdata"></app-item-detail-viewer>
     </div>
 </div>
