@@ -7,6 +7,7 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class ResumeWideScreenComponent implements OnInit {
   private lastCalculatedLeastHeight: number | undefined = undefined;
+  private selectedWorkOptionReceived: number | undefined;
 
   constructor() { }
 
@@ -21,6 +22,11 @@ export class ResumeWideScreenComponent implements OnInit {
       this.lastCalculatedLeastHeight = got;
     }
     return `${this.lastCalculatedLeastHeight}px`;
+  }
+
+  selectWorkOption(idx: number) {
+    this.selectedWorkOptionReceived = idx;
+    console.log(this.selectedWorkOptionReceived);
   }
 
 }

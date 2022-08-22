@@ -1,5 +1,5 @@
 import { NestedTreeControl } from '@angular/cdk/tree';
-import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
 import { MatIconRegistry } from '@angular/material/icon';
 import { MatTreeNestedDataSource } from '@angular/material/tree';
 import { DomSanitizer } from '@angular/platform-browser';
@@ -12,9 +12,11 @@ import { WorkExperience } from 'src/app/types/work.experience.type';
 })
 export class ProfissionalInfoComponent implements OnInit, OnChanges {
   @Input() data: any;
+  @Output() public onSelectedWorkOption = new EventEmitter<number>();
 
   public treeControl = new NestedTreeControl<WorkExperience>(node => node.tasks);
   public dataSource = new MatTreeNestedDataSource<WorkExperience>();
+  public selectedWorkOption: number | undefined;
 
   constructor(
     private matIconRegistry: MatIconRegistry,
@@ -44,5 +46,10 @@ export class ProfissionalInfoComponent implements OnInit, OnChanges {
   }
 
   hasChild = (_: number, node: WorkExperience) => !!node.tasks && node.tasks.length > 0;
+
+  choseOption(idx: number) {
+    this.selectedWorkOption = idx;
+    this.onSelectedWorkOption.emit(this.selectedWorkOption);
+  }
 
 }
