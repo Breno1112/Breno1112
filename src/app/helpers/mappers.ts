@@ -4,7 +4,7 @@ import { WorkExperience } from "../types/work.experience.type";
 export function fromWorkExperienceToItemDetail(work_experience: WorkExperience): ItemDetailViewerType {
     return {
         title: `${work_experience.job_title} at ${work_experience.company_name}`,
-        subtitle: `From ${work_experience.start_date.toDate().toDateString()} to ${work_experience.end_date?.toDate().toDateString()}`,
+        subtitle: `From ${work_experience.start_date.toDate().toDateString()} to ${work_experience.end_date? work_experience.end_date.toDate().toDateString() : "Present"}`,
         description_data: work_experience.tasks.map(item => {
             return {
                 description: item.description

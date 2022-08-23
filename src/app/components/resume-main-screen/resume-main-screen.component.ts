@@ -1,7 +1,6 @@
 import { Component, OnInit, HostListener } from '@angular/core';
-import { HttpClient } from "@angular/common/http";
 import { ScreenType } from '../../enums/screen-type.enum';
-import { collection, doc, DocumentData, Firestore, getDoc, getDocs, getFirestore, query, QuerySnapshot } from "firebase/firestore";
+import { collection, doc, DocumentData, Firestore, getDoc, getDocs, getFirestore, query, QuerySnapshot, where, orderBy } from "firebase/firestore";
 import { ResumeMainDTO } from 'src/app/types/resume-main-dto.type';
 import { ProfileData } from 'src/app/types/profile-data.type';
 import { SkillData } from 'src/app/types/skill-data.type';
@@ -64,7 +63,7 @@ export class ResumeMainScreenComponent implements OnInit {
     const promises: Promise<void>[] = [];
     promises.push(this.loadSegments());
     promises.push(this.getProfileData());
-    Promise.all(promises).then(result => {
+    Promise.all(promises).then(_ => {
       this.loaded = true;
     });
   }
@@ -72,13 +71,13 @@ export class ResumeMainScreenComponent implements OnInit {
   async loadSegments(): Promise<void> {
     const promises: Promise<QuerySnapshot<DocumentData>>[] = [];
     promises.push(this.getProfileSubcollectionData("skills"));
-    promises.push(this.getProfileSubcollectionData("education"));
-    promises.push(this.getProfileSubcollectionData("awards"));
-    promises.push(this.getProfileSubcollectionData("certifications"));
+    promises.push(this.getProfileSubcollectionData("education", true));
+    promises.push(this.getProfileSubcollectionData("awards", true));
+    promises.push(this.getProfileSubcollectionData("certifications", true));
     promises.push(this.getProfileSubcollectionData("frameworks_and_tools"));
     promises.push(this.getProfileSubcollectionData("languages"));
     promises.push(this.getProfileSubcollectionData("programming_languages"));
-    promises.push(this.getProfileSubcollectionData("work_experience"));
+    promises.push(this.getProfileSubcollectionData("work_experience", true));
     const out = await Promise.all(promises);
     this.resumeMainDTO.skills = out[0].docs.map(item => item.data() as SkillData);
     this.resumeMainDTO.education = out[1].docs.map(item_1 => item_1.data() as Education);
@@ -97,9 +96,11 @@ export class ResumeMainScreenComponent implements OnInit {
     this.resumeMainDTO.profile_data = profile.data() as ProfileData;
   }
 
-  getProfileSubcollectionData(subcollection_name: string) {
-    const skill_collection_query = query(collection(this.db, `profile/data/${subcollection_name}`))
-    return getDocs(skill_collection_query);
+  getProfileSubcollectionData(subcollection_name: string, order: boolean = false) {
+    if (order) {
+      return getDocs(query(collection(this.db, `profile/data/${subcollection_name}`), orderBy("start_date", "desc")));
+    }
+    return getDocs(query(collection(this.db, `profile/data/${subcollection_name}`)))
   }
 
   async getWorkExperienceDetails() {
