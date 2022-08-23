@@ -5,16 +5,8 @@ import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/cor
   templateUrl: './item-detail-viewer.component.html',
   styleUrls: ['./item-detail-viewer.component.css']
 })
-export class ItemDetailViewerComponent implements OnInit, OnChanges {
+export class ItemDetailViewerComponent {
 
   @Input("data") public data: any;
-
-  constructor() { }
-  ngOnChanges(changes: SimpleChanges): void {
-    console.log(changes);
-  }
-
-  ngOnInit(): void {
-  }
 
 }

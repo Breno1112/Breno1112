@@ -1,15 +1,15 @@
 <div class="contact-info">
     <div class="profile-picture">
-        <img [src]="data.profile_image" alt="profile-image">
+        <img [src]="data!!.profile_data!!.profile_image!!" alt="profile-image">
     </div>
     <div mat-line class="small-padding">
-        <h1 class="contact-font center-text title-font bold">{{data.name}}</h1>
+        <h1 class="contact-font center-text title-font bold">{{data!!.profile_data!!.name}}</h1>
     </div>
     <div mat-line class="smallest-padding center-text">
-        <h2 class="contact-font">{{data.profession_shortname}}</h2>
+        <h2 class="contact-font">{{data!!.profile_data!!.profession_shortname}}</h2>
     </div>
     <div mat-line class="smallest-padding center-text">
-        <h2 class="contact-font small-line-height">{{data.short_description}}</h2>
+        <h2 class="contact-font small-line-height">{{data!!.profile_data!!.short_description}}</h2>
     </div>
     <div class="small-padding">
         <h1 class="contact-font center-text title-font bold">Contact-me</h1>
@@ -17,11 +17,11 @@
     <mat-list>
         <mat-list-item>
             <mat-icon mat-list-icon class="white-icon">email</mat-icon>
-            <div mat-line class="contact-font" (click)="mailMe(data.email)">{{data.email}}</div>
+            <div mat-line class="contact-font" (click)="mailMe(data!!.profile_data!!.email)">{{data!!.profile_data!!.email}}</div>
         </mat-list-item>
         <mat-list-item>
             <mat-icon mat-list-icon class="white-icon">phone</mat-icon>
-            <div mat-line class="contact-font" (click)="phoneMe(data.phone)">{{data.phone}}</div>
+            <div mat-line class="contact-font" (click)="phoneMe(data!!.profile_data!!.phone)">{{data!!.profile_data!!.phone}}</div>
         </mat-list-item>
     </mat-list>
     <div class="small-padding">
@@ -29,7 +29,7 @@
     </div>
     <div class="small-horizontal-padding">
         <mat-grid-list cols="4" rowHeight="50px">
-            <div *ngFor="let skill of data.skills">
+            <div *ngFor="let skill of data!!.skills">
                 <mat-grid-tile colspan="2" rowspan="1">
                     <mat-grid-tile-footer class="contact-font"><p>{{skill.name}}</p></mat-grid-tile-footer>
                 </mat-grid-tile>

@@ -1,8 +1,10 @@
 import { NestedTreeControl } from '@angular/cdk/tree';
-import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { MatIconRegistry } from '@angular/material/icon';
 import { MatTreeNestedDataSource } from '@angular/material/tree';
 import { DomSanitizer } from '@angular/platform-browser';
+import { Timestamp } from 'firebase/firestore';
+import { ResumeMainDTO } from 'src/app/types/resume-main-dto.type';
 import { WorkExperience } from 'src/app/types/work.experience.type';
 
 @Component({
@@ -10,8 +12,8 @@ import { WorkExperience } from 'src/app/types/work.experience.type';
   templateUrl: './profissional-info.component.html',
   styleUrls: ['./profissional-info.component.css']
 })
-export class ProfissionalInfoComponent implements OnInit, OnChanges {
-  @Input() data: any;
+export class ProfissionalInfoComponent implements OnInit {
+  @Input() data?: ResumeMainDTO;
   @Output() public onSelectedWorkOption = new EventEmitter<number>();
 
   public treeControl = new NestedTreeControl<WorkExperience>(node => node.tasks);
@@ -31,18 +33,16 @@ export class ProfissionalInfoComponent implements OnInit, OnChanges {
       this.domSanitizer.bypassSecurityTrustResourceUrl("assets/icons/certificate-outline.svg")
     );
   }
-  ngOnChanges(changes: SimpleChanges): void {
-    console.log(changes);
-  }
 
   ngOnInit(): void {
-    this.dataSource = this.data["work_experience"];
+    this.dataSource.data = this.data!!.work_experience!!;
   }
 
-  parse_date(str: string) {
-    const result = new Date(str);
-    result.setDate(result.getDate() + 1);
-    return result;
+  parse_date(date: Timestamp) {
+    // const result = new Date(str);
+    // result.setDate(result.getDate() + 1);
+    // return result;
+    return "data a calcular";
   }
 
   hasChild = (_: number, node: WorkExperience) => !!node.tasks && node.tasks.length > 0;

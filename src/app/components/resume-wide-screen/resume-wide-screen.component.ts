@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { fromWorkExperiencesToItemDetails, fromWorkExperienceToItemDetail } from 'src/app/helpers/mappers';
 import { ItemDetailViewerType } from 'src/app/types/item.detail.viewer.type';
+import { ResumeMainDTO } from 'src/app/types/resume-main-dto.type';
 
 @Component({
   selector: 'app-resume-wide-screen',
@@ -14,7 +15,7 @@ export class ResumeWideScreenComponent implements OnInit {
 
   constructor() { }
 
-  @Input("data") public data: any;
+  @Input("data") public data?: ResumeMainDTO;
 
   ngOnInit(): void {
   }
@@ -29,7 +30,7 @@ export class ResumeWideScreenComponent implements OnInit {
 
   selectWorkOption(idx: number) {
     this.selectedWorkOptionReceived = idx;
-    this.viewingdata = fromWorkExperienceToItemDetail(this.data["work_experience"][this.selectedWorkOptionReceived]);
+    this.viewingdata = fromWorkExperienceToItemDetail(this.data!!.work_experience!![this.selectedWorkOptionReceived]);
   }
 
 }

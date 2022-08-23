@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { MatIconRegistry } from '@angular/material/icon';
 import { DomSanitizer } from '@angular/platform-browser';
+import { ResumeMainDTO } from 'src/app/types/resume-main-dto.type';
 
 @Component({
   selector: 'app-resume-desktop-screen',
@@ -24,7 +25,7 @@ export class ResumeDesktopScreenComponent implements OnInit {
     );
   }
 
-  @Input("data") public data: any;
+  @Input("data") public data?: ResumeMainDTO;
 
   ngOnInit(): void {
   }
